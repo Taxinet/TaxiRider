@@ -66,8 +66,6 @@
         [HUD show:YES];
         [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
     }
-    
-
 }
 -(void)checkLogin
 {
