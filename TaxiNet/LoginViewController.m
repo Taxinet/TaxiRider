@@ -8,44 +8,73 @@
 
 #import "LoginViewController.h"
 #import "HomeViewController.h"
+#import "MBProgressHUD.h"
 #import "unity.h"
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
+{
+    MBProgressHUD *HUD;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.view addSubview:HUD];
+     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"offLoginloading" object:nil];
 }
-
+-(void) receiveNotification:(NSNotification *) notification
+{
+    if ([[notification name]isEqualToString:@"offLoginloading"]) {
+        [HUD removeFromSuperview];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)back:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)Login:(id)sender {
-    [unity login_by_email:@"xyz" pass:@"deathknight" owner:self];
+    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input username",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
+    {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input Password",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else
+    {
+        [HUD show:YES];
+        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
+    }
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
-    HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
-    
-    [self.navigationController pushViewController:controller animated:YES];
 
 }
+-(void)checkLogin
+{
+    NSLog(@"data: %@",self.dataUser);
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
+    HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 @end

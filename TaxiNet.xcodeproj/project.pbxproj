@@ -25,6 +25,8 @@
 		772BBE141ABF0EDA0098AB20 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBE021ABF0EDA0098AB20 /* UIRefreshControl+AFNetworking.m */; };
 		772BBE151ABF0EDA0098AB20 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBE041ABF0EDA0098AB20 /* UIWebView+AFNetworking.m */; };
 		772BBE191ABF12BA0098AB20 /* unity.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBE181ABF12BA0098AB20 /* unity.m */; };
+		7733C36E1AC6938F007A15ED /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733C36D1AC6938F007A15ED /* UserInfo.m */; };
+		7733C3721AC6956C007A15ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733C3711AC6956C007A15ED /* MBProgressHUD.m */; };
 		774318A11AA73DBA001CF128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 774318A01AA73DBA001CF128 /* main.m */; };
 		774318A41AA73DBA001CF128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 774318A31AA73DBA001CF128 /* AppDelegate.m */; };
 		774318A71AA73DBA001CF128 /* TaxiNet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774318A51AA73DBA001CF128 /* TaxiNet.xcdatamodeld */; };
@@ -124,6 +126,10 @@
 		772BBE041ABF0EDA0098AB20 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		772BBE171ABF12BA0098AB20 /* unity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unity.h; sourceTree = "<group>"; };
 		772BBE181ABF12BA0098AB20 /* unity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = unity.m; sourceTree = "<group>"; };
+		7733C36C1AC6938F007A15ED /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		7733C36D1AC6938F007A15ED /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		7733C3701AC6956C007A15ED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7733C3711AC6956C007A15ED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7743189B1AA73DB9001CF128 /* TaxiNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxiNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7743189F1AA73DBA001CF128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774318A01AA73DBA001CF128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -280,6 +286,24 @@
 			name = untity;
 			sourceTree = "<group>";
 		};
+		7733C36B1AC6937B007A15ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7733C36C1AC6938F007A15ED /* UserInfo.h */,
+				7733C36D1AC6938F007A15ED /* UserInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7733C36F1AC6955C007A15ED /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7733C3701AC6956C007A15ED /* MBProgressHUD.h */,
+				7733C3711AC6956C007A15ED /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		774318921AA73DB9001CF128 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +326,7 @@
 		7743189D1AA73DB9001CF128 /* TaxiNet */ = {
 			isa = PBXGroup;
 			children = (
+				7733C36B1AC6937B007A15ED /* Model */,
 				772BBE161ABF127E0098AB20 /* untity */,
 				774318F71AAC414C001CF128 /* Lib */,
 				774318F11AA96359001CF128 /* HomeView */,
@@ -411,6 +436,7 @@
 		774318F71AAC414C001CF128 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				7733C36F1AC6955C007A15ED /* MBProgressHUD */,
 				772BBDDF1ABF0EDA0098AB20 /* AFNetworking */,
 				772BBDF31ABF0EDA0098AB20 /* UIKit+AFNetworking */,
 				776090B91AADD59C00C21D94 /* REFrostedViewController */,
@@ -589,6 +615,7 @@
 				776090C71AADD59C00C21D94 /* REFrostedContainerViewController.m in Sources */,
 				772BBE0A1ABF0EDA0098AB20 /* AFURLConnectionOperation.m in Sources */,
 				772BBE141ABF0EDA0098AB20 /* UIRefreshControl+AFNetworking.m in Sources */,
+				7733C36E1AC6938F007A15ED /* UserInfo.m in Sources */,
 				776090CB1AADD59C00C21D94 /* UIViewController+REFrostedViewController.m in Sources */,
 				776090D11AADD61A00C21D94 /* DEMOMenuViewController.m in Sources */,
 				776090C91AADD59C00C21D94 /* UIImage+REFrostedViewController.m in Sources */,
@@ -616,6 +643,7 @@
 				774318D71AA747C1001CF128 /* LoginViewController.m in Sources */,
 				772BBE091ABF0EDA0098AB20 /* AFSecurityPolicy.m in Sources */,
 				774318F61AA9637D001CF128 /* HomeViewController.m in Sources */,
+				7733C3721AC6956C007A15ED /* MBProgressHUD.m in Sources */,
 				772BBE151ABF0EDA0098AB20 /* UIWebView+AFNetworking.m in Sources */,
 				776090C81AADD59C00C21D94 /* REFrostedViewController.m in Sources */,
 				772BBE0F1ABF0EDA0098AB20 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

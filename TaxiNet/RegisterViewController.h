@@ -11,5 +11,12 @@
 @interface RegisterViewController : UIViewController
 - (IBAction)back:(id)sender;
 - (IBAction)save:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *NameUser;
+@property (weak, nonatomic) IBOutlet UITextField *EmailUser;
+@property (weak, nonatomic) IBOutlet UITextField *PassUser;
+@property (weak, nonatomic) IBOutlet UITextField *RepassUser;
+@property (weak, nonatomic) IBOutlet UITextField *PhoneUser;
+- (IBAction)checkRule:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *checkBox;
 
 @end
