@@ -46,6 +46,8 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
     NSString *api=[NSString stringWithFormat:@"http://localhost:8080/TN/restServices/CommonController/register?email=%@&password=%@&firstname=%@&lastname=%@&phone=%@&&language=%@&usergroup=%@&countrycode=%@",email,pass,firstname,lastname,phone,language,usergroup,countrycode];
+    NSLog(@"api:%@",api);
+
     [manager GET:api parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

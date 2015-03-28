@@ -17,8 +17,6 @@ bool checked=NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  _checkBox.backgroundColor=[UIColor blueColor];
-
     // Do any additional setup after loading the view.
 }
 
@@ -27,15 +25,6 @@ bool checked=NO;
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (IBAction)back:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -119,7 +108,7 @@ bool checked=NO;
                         }
                         else
                         {
-                            [unity register_by_email:self.EmailUser.text password:self.PassUser.text firstname:@" " lastname:self.NameUser.text phone:self.PhoneUser.text language:@"vi" usergroup:@"rd" countrycode:@"vn"];
+                            [unity register_by_email:self.EmailUser.text password:self.PassUser.text firstname:@"ha" lastname:self.NameUser.text phone:self.PhoneUser.text language:@"vi" usergroup:@"rd" countrycode:@"vn"];
                         }
                     }
                 }
@@ -131,7 +120,6 @@ bool checked=NO;
 }
 - (IBAction)checkRule:(id)sender {
     if (!checked) {
-        _checkBox.backgroundColor=[UIColor redColor];
         UIImage *btnImage = [UIImage imageNamed:@"checkBox.png"];
         [_checkBox setImage:btnImage forState:UIControlStateNormal];
         checked=YES;
