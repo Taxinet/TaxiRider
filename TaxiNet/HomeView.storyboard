@@ -16,12 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xtt-u2-obl">
-                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
-                                <connections>
-                                    <outlet property="delegate" destination="SRb-6o-AC9" id="fzu-vM-DMv"/>
-                                </connections>
-                            </mapView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEu-rl-zPp">
+                                <rect key="frame" x="0.0" y="65" width="320" height="403"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xtt-u2-obl">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="SRb-6o-AC9" id="fzu-vM-DMv"/>
+                                        </connections>
+                                    </mapView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mjm-Zk-AGT">
+                                        <rect key="frame" x="145" y="179" width="30" height="46"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarLogin.png" translatesAutoresizingMaskIntoConstraints="NO" id="08p-MT-2kQ">
                                 <rect key="frame" x="0.0" y="20" width="320" height="45"/>
                             </imageView>
@@ -34,9 +43,6 @@
                                     <action selector="menu:" destination="SRb-6o-AC9" eventType="touchUpInside" id="Vlm-DQ-MJl"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mjm-Zk-AGT">
-                                <rect key="frame" x="145" y="261" width="30" height="46"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYA-9U-gh4">
                                 <rect key="frame" x="0.0" y="468" width="320" height="50"/>
                                 <subviews>

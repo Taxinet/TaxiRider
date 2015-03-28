@@ -133,11 +133,14 @@
 
 
 - (void)getCoor {
+    CGPoint point = mImageFocus.frame.origin;
+    point.x = point.x + mImageFocus.frame.size.width / 2;
+    point.y = point.y + mImageFocus.frame.size.height;
     if (locationTabPosition == 0) {
-        coordinateFrom = [mapview convertPoint:mImageFocus.frame.origin toCoordinateFromView:mapview];
+        coordinateFrom = [mapview convertPoint:point toCoordinateFromView:mapview];
         [self getReverseGeocode:coordinateFrom];
     } else {
-        coordinateTo = [mapview convertPoint:mImageFocus.frame.origin toCoordinateFromView:mapview];
+        coordinateTo = [mapview convertPoint:point toCoordinateFromView:mapview];
         [self getReverseGeocode:coordinateTo];
     }
 }
