@@ -10,9 +10,15 @@
 #import <CoreLocation/CoreLocation.h>
 #import "JPSThumbnailAnnotation.h"
 
-@interface HomeViewController : UIViewController<CLLocationManagerDelegate>
+@interface HomeViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate>
 - (IBAction)menu:(id)sender;
 @property (weak, nonatomic) IBOutlet MKMapView *mapview;
 @property (weak, nonatomic) IBOutlet UIView *ViewDetail;
 
+@property (weak, nonatomic) IBOutlet UILabel *mLocationTo;
+@property (weak, nonatomic) IBOutlet UIImageView *mImageFocus;
+@property (weak, nonatomic) IBOutlet UILabel *mLocationFrom;
+@property (weak, nonatomic) IBOutlet UIView *viewLocationFrom;
+@property (weak, nonatomic) IBOutlet UIView *viewLocationTo;
+- (IBAction)findWay:(id)sender;
 @end
