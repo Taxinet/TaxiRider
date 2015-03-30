@@ -33,7 +33,7 @@
     mapview.delegate = self;
     
     // Map View
-    //    [self.mapview addAnnotations:[self annotations]];
+    [self.mapview addAnnotations:[self annotations]];
     [self performSelector:@selector(zoomInToMyLocation)
                withObject:nil
                afterDelay:1];
@@ -133,11 +133,14 @@
 
 
 - (void)getCoor {
+    CGPoint point = mImageFocus.frame.origin;
+    point.x = point.x + mImageFocus.frame.size.width / 2;
+    point.y = point.y + mImageFocus.frame.size.height;
     if (locationTabPosition == 0) {
-        coordinateFrom = [mapview convertPoint:mImageFocus.frame.origin toCoordinateFromView:mapview];
+        coordinateFrom = [mapview convertPoint:point toCoordinateFromView:mapview];
         [self getReverseGeocode:coordinateFrom];
     } else {
-        coordinateTo = [mapview convertPoint:mImageFocus.frame.origin toCoordinateFromView:mapview];
+        coordinateTo = [mapview convertPoint:point toCoordinateFromView:mapview];
         [self getReverseGeocode:coordinateTo];
     }
 }
@@ -195,6 +198,11 @@
     // If it's the user location, just return nil.
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
+    if ([annotation conformsToProtocol:@protocol(JPSThumbnailAnnotationProtocol)]) {
+        return [((NSObject<JPSThumbnailAnnotationProtocol> *)annotation) annotationViewInMap:mapView];
+    }
+    return nil;
+
     // Handle any custom annotations.
     if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
         // Try to dequeue an existing pin view first.
@@ -219,65 +227,57 @@
     return routeLineRenderer;
 }
 
-//- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-//    if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {
-//        [((NSObject<JPSThumbnailAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
-//    }
-//}
-//
-//- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-//    if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {
-//        [((NSObject<JPSThumbnailAnnotationViewProtocol> *)view) didDeselectAnnotationViewInMap:mapView];
-//
-//    }
-//}
-//
-//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-//    if ([annotation conformsToProtocol:@protocol(JPSThumbnailAnnotationProtocol)]) {
-//        return [((NSObject<JPSThumbnailAnnotationProtocol> *)annotation) annotationViewInMap:mapView];
-//    }
-//    return nil;
-//}
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {
+        [((NSObject<JPSThumbnailAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
+    }
+}
 
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {
+        [((NSObject<JPSThumbnailAnnotationViewProtocol> *)view) didDeselectAnnotationViewInMap:mapView];
 
-//- (NSArray *)annotations {
-//
-//    // Empire State Building
-//    JPSThumbnail *empire = [[JPSThumbnail alloc] init];
-//    empire.image = [UIImage imageNamed:@"pinMap.png"];
-//    empire.coordinate = CLLocationCoordinate2DMake(21.0016279f, 105.8049829f);
-//    empire.disclosureBlock =  ^{
-//        [UIView animateWithDuration:1
-//                              delay:0
-//                            options: UIViewAnimationCurveEaseOut
-//                         animations:^{
-//                             CGRect f = self.ViewDetail.frame;
-//                             f.origin.y = 428; // new y
-//                             self.ViewDetail.frame = f;
-//                         }
-//                         completion:^(BOOL finished){
-//                             NSLog(@"Done!");
-//                         }];
-//    };
-//
-//    JPSThumbnail *empire2 = [[JPSThumbnail alloc] init];
-//    empire2.image = [UIImage imageNamed:@"pinMap.png"];
-//    empire2.coordinate = CLLocationCoordinate2DMake(21.0036279f, 105.8049829f);
-//    empire2.disclosureBlock =  ^{
-//        [UIView animateWithDuration:1
-//                              delay:0
-//                            options: UIViewAnimationCurveEaseOut
-//                         animations:^{
-//                             CGRect f = self.ViewDetail.frame;
-//                             f.origin.y = 428; // new y
-//                             self.ViewDetail.frame = f;
-//                         }
-//                         completion:^(BOOL finished){
-//                             NSLog(@"Done!");
-//                         }];
-//    };
-//
-//    return @[[JPSThumbnailAnnotation annotationWithThumbnail:empire],[JPSThumbnailAnnotation annotationWithThumbnail:empire2]];
-//}
+    }
+}
+
+- (NSArray *)annotations {
+
+    // Empire State Building
+    JPSThumbnail *empire = [[JPSThumbnail alloc] init];
+    empire.image = [UIImage imageNamed:@"pinMap.png"];
+    empire.coordinate = CLLocationCoordinate2DMake(21.0016279f, 105.8049829f);
+    empire.disclosureBlock =  ^{
+        [UIView animateWithDuration:1
+                              delay:0
+                            options: UIViewAnimationCurveEaseOut
+                         animations:^{
+                             CGRect f = self.ViewDetail.frame;
+                             f.origin.y = 428; // new y
+                             self.ViewDetail.frame = f;
+                         }
+                         completion:^(BOOL finished){
+                             NSLog(@"Done!");
+                         }];
+    };
+
+    JPSThumbnail *empire2 = [[JPSThumbnail alloc] init];
+    empire2.image = [UIImage imageNamed:@"pinMap.png"];
+    empire2.coordinate = CLLocationCoordinate2DMake(21.0036279f, 105.8049829f);
+    empire2.disclosureBlock =  ^{
+        [UIView animateWithDuration:1
+                              delay:0
+                            options: UIViewAnimationCurveEaseOut
+                         animations:^{
+                             CGRect f = self.ViewDetail.frame;
+                             f.origin.y = 428; // new y
+                             self.ViewDetail.frame = f;
+                         }
+                         completion:^(BOOL finished){
+                             NSLog(@"Done!");
+                         }];
+    };
+
+    return @[[JPSThumbnailAnnotation annotationWithThumbnail:empire],[JPSThumbnailAnnotation annotationWithThumbnail:empire2]];
+}
 
 @end

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7743189A1AA73DB9001CF128"
-               BuildableName = "TaxiNet.app"
-               BlueprintName = "TaxiNet"
-               ReferencedContainer = "container:TaxiNet.xcodeproj">
+               BuildableName = "taxinet.app"
+               BlueprintName = "taxinet.temp_caseinsensitive_rename"
+               ReferencedContainer = "container:taxinet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "774318B61AA73DBA001CF128"
-               BuildableName = "TaxiNetTests.xctest"
-               BlueprintName = "TaxiNetTests"
-               ReferencedContainer = "container:TaxiNet.xcodeproj">
+               BuildableName = "taxinet.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "taxinet.temp_caseinsensitive_renameTests"
+               ReferencedContainer = "container:taxinet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "774318B61AA73DBA001CF128"
-               BuildableName = "TaxiNetTests.xctest"
-               BlueprintName = "TaxiNetTests"
-               ReferencedContainer = "container:TaxiNet.xcodeproj">
+               BuildableName = "taxinet.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "taxinet.temp_caseinsensitive_renameTests"
+               ReferencedContainer = "container:taxinet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7743189A1AA73DB9001CF128"
-            BuildableName = "TaxiNet.app"
-            BlueprintName = "TaxiNet"
-            ReferencedContainer = "container:TaxiNet.xcodeproj">
+            BuildableName = "taxinet.app"
+            BlueprintName = "taxinet.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:taxinet.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,13 +72,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7743189A1AA73DB9001CF128"
-            BuildableName = "TaxiNet.app"
-            BlueprintName = "TaxiNet"
-            ReferencedContainer = "container:TaxiNet.xcodeproj">
+            BuildableName = "taxinet.app"
+            BlueprintName = "taxinet.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:taxinet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -90,13 +91,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7743189A1AA73DB9001CF128"
-            BuildableName = "TaxiNet.app"
-            BlueprintName = "TaxiNet"
-            ReferencedContainer = "container:TaxiNet.xcodeproj">
+            BuildableName = "taxinet.app"
+            BlueprintName = "taxinet.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:taxinet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

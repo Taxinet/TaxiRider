@@ -130,7 +130,7 @@
 		7733C36D1AC6938F007A15ED /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		7733C3701AC6956C007A15ED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7733C3711AC6956C007A15ED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		7743189B1AA73DB9001CF128 /* TaxiNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxiNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7743189B1AA73DB9001CF128 /* taxinet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taxinet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7743189F1AA73DBA001CF128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774318A01AA73DBA001CF128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		774318A21AA73DBA001CF128 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		774318AC1AA73DBA001CF128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		774318AE1AA73DBA001CF128 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		774318B11AA73DBA001CF128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		774318B71AA73DBA001CF128 /* TaxiNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		774318B71AA73DBA001CF128 /* taxinet.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taxinet.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		774318BC1AA73DBA001CF128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774318BD1AA73DBA001CF128 /* TaxiNetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiNetTests.m; sourceTree = "<group>"; };
 		774318CB1AA7465A001CF128 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 		7743189C1AA73DB9001CF128 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7743189B1AA73DB9001CF128 /* TaxiNet.app */,
-				774318B71AA73DBA001CF128 /* TaxiNetTests.xctest */,
+				7743189B1AA73DB9001CF128 /* taxinet.app */,
+				774318B71AA73DBA001CF128 /* taxinet.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -493,9 +493,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7743189A1AA73DB9001CF128 /* TaxiNet */ = {
+		7743189A1AA73DB9001CF128 /* taxinet.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 774318C11AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "TaxiNet" */;
+			buildConfigurationList = 774318C11AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "taxinet.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				774318971AA73DB9001CF128 /* Sources */,
 				774318981AA73DB9001CF128 /* Frameworks */,
@@ -505,14 +505,14 @@
 			);
 			dependencies = (
 			);
-			name = TaxiNet;
+			name = taxinet.temp_caseinsensitive_rename;
 			productName = TaxiNet;
-			productReference = 7743189B1AA73DB9001CF128 /* TaxiNet.app */;
+			productReference = 7743189B1AA73DB9001CF128 /* taxinet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		774318B61AA73DBA001CF128 /* TaxiNetTests */ = {
+		774318B61AA73DBA001CF128 /* taxinet.temp_caseinsensitive_renameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 774318C41AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "TaxiNetTests" */;
+			buildConfigurationList = 774318C41AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "taxinet.temp_caseinsensitive_renameTests" */;
 			buildPhases = (
 				774318B31AA73DBA001CF128 /* Sources */,
 				774318B41AA73DBA001CF128 /* Frameworks */,
@@ -523,9 +523,9 @@
 			dependencies = (
 				774318B91AA73DBA001CF128 /* PBXTargetDependency */,
 			);
-			name = TaxiNetTests;
+			name = taxinet.temp_caseinsensitive_renameTests;
 			productName = TaxiNetTests;
-			productReference = 774318B71AA73DBA001CF128 /* TaxiNetTests.xctest */;
+			productReference = 774318B71AA73DBA001CF128 /* taxinet.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -547,7 +547,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 774318961AA73DB9001CF128 /* Build configuration list for PBXProject "TaxiNet" */;
+			buildConfigurationList = 774318961AA73DB9001CF128 /* Build configuration list for PBXProject "taxinet" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -560,8 +560,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7743189A1AA73DB9001CF128 /* TaxiNet */,
-				774318B61AA73DBA001CF128 /* TaxiNetTests */,
+				7743189A1AA73DB9001CF128 /* taxinet.temp_caseinsensitive_rename */,
+				774318B61AA73DBA001CF128 /* taxinet.temp_caseinsensitive_renameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -665,7 +665,7 @@
 /* Begin PBXTargetDependency section */
 		774318B91AA73DBA001CF128 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7743189A1AA73DB9001CF128 /* TaxiNet */;
+			target = 7743189A1AA73DB9001CF128 /* taxinet.temp_caseinsensitive_rename */;
 			targetProxy = 774318B81AA73DBA001CF128 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -772,10 +772,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: fu.taxinet";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = taxinet;
+				PROVISIONING_PROFILE = "e0892056-6c1c-4b06-8acb-e4321d362abb";
 			};
 			name = Debug;
 		};
@@ -783,10 +786,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: fu.taxinet";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = taxinet;
+				PROVISIONING_PROFILE = "e0892056-6c1c-4b06-8acb-e4321d362abb";
 			};
 			name = Release;
 		};
@@ -804,7 +810,7 @@
 				);
 				INFOPLIST_FILE = TaxiNetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = taxinet.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaxiNet.app/TaxiNet";
 			};
 			name = Debug;
@@ -819,7 +825,7 @@
 				);
 				INFOPLIST_FILE = TaxiNetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = taxinet.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaxiNet.app/TaxiNet";
 			};
 			name = Release;
@@ -827,7 +833,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		774318961AA73DB9001CF128 /* Build configuration list for PBXProject "TaxiNet" */ = {
+		774318961AA73DB9001CF128 /* Build configuration list for PBXProject "taxinet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774318BF1AA73DBA001CF128 /* Debug */,
@@ -836,7 +842,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		774318C11AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "TaxiNet" */ = {
+		774318C11AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "taxinet.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774318C21AA73DBA001CF128 /* Debug */,
@@ -845,7 +851,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		774318C41AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "TaxiNetTests" */ = {
+		774318C41AA73DBA001CF128 /* Build configuration list for PBXNativeTarget "taxinet.temp_caseinsensitive_renameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774318C51AA73DBA001CF128 /* Debug */,
