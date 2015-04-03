@@ -27,9 +27,17 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
          (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
     }
+    
+    NSLog(@"%@",launchOptions);
 
     return YES;
 }
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:
+(NSDictionary*)userInfo {
+    NSLog(@"%@",userInfo);
+}
+
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     NSString* deviceToke1n = [[[[deviceToken description]

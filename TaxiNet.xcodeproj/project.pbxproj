@@ -568,7 +568,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 774318961AA73DB9001CF128 /* Build configuration list for PBXProject "taxinet" */;
+			buildConfigurationList = 774318961AA73DB9001CF128 /* Build configuration list for PBXProject "TaxiNet" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -800,13 +800,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
 				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
+
 			};
 			name = Debug;
 		};
@@ -814,13 +816,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -861,7 +863,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		774318961AA73DB9001CF128 /* Build configuration list for PBXProject "taxinet" */ = {
+		774318961AA73DB9001CF128 /* Build configuration list for PBXProject "TaxiNet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774318BF1AA73DBA001CF128 /* Debug */,
