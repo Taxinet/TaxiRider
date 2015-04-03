@@ -27,6 +27,9 @@
 		772BBE191ABF12BA0098AB20 /* unity.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBE181ABF12BA0098AB20 /* unity.m */; };
 		7733C36E1AC6938F007A15ED /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733C36D1AC6938F007A15ED /* UserInfo.m */; };
 		7733C3721AC6956C007A15ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733C3711AC6956C007A15ED /* MBProgressHUD.m */; };
+		7741833D1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7741833C1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.m */; };
+		774183411AC9CCFE00ABC5E6 /* DetailTaxi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7741833F1AC9CCFE00ABC5E6 /* DetailTaxi.m */; };
+		774183421AC9CCFE00ABC5E6 /* DetailTaxi.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774183401AC9CCFE00ABC5E6 /* DetailTaxi.xib */; };
 		774318A11AA73DBA001CF128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 774318A01AA73DBA001CF128 /* main.m */; };
 		774318A41AA73DBA001CF128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 774318A31AA73DBA001CF128 /* AppDelegate.m */; };
 		774318A71AA73DBA001CF128 /* TaxiNet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774318A51AA73DBA001CF128 /* TaxiNet.xcdatamodeld */; };
@@ -130,6 +133,11 @@
 		7733C36D1AC6938F007A15ED /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		7733C3701AC6956C007A15ED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7733C3711AC6956C007A15ED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7741833B1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
+		7741833C1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
+		7741833E1AC9CCFE00ABC5E6 /* DetailTaxi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTaxi.h; sourceTree = "<group>"; };
+		7741833F1AC9CCFE00ABC5E6 /* DetailTaxi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTaxi.m; sourceTree = "<group>"; };
+		774183401AC9CCFE00ABC5E6 /* DetailTaxi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTaxi.xib; sourceTree = "<group>"; };
 		7743189B1AA73DB9001CF128 /* taxinet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taxinet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7743189F1AA73DBA001CF128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774318A01AA73DBA001CF128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -304,6 +312,15 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		7741833A1AC9CC7F00ABC5E6 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				7741833B1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.h */,
+				7741833C1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.m */,
+			);
+			name = Popup;
+			sourceTree = "<group>";
+		};
 		774318921AA73DB9001CF128 = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +446,9 @@
 				776090D31AADD7F100C21D94 /* ProfileViewController.m */,
 				776090D51AADD86D00C21D94 /* CompanyInfoViewController.h */,
 				776090D61AADD86D00C21D94 /* CompanyInfoViewController.m */,
+				7741833E1AC9CCFE00ABC5E6 /* DetailTaxi.h */,
+				7741833F1AC9CCFE00ABC5E6 /* DetailTaxi.m */,
+				774183401AC9CCFE00ABC5E6 /* DetailTaxi.xib */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -436,6 +456,7 @@
 		774318F71AAC414C001CF128 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				7741833A1AC9CC7F00ABC5E6 /* Popup */,
 				7733C36F1AC6955C007A15ED /* MBProgressHUD */,
 				772BBDDF1ABF0EDA0098AB20 /* AFNetworking */,
 				772BBDF31ABF0EDA0098AB20 /* UIKit+AFNetworking */,
@@ -585,6 +606,7 @@
 				774318D41AA74794001CF128 /* AppLogin.storyboard in Resources */,
 				774318DD1AA74DAE001CF128 /* text_pass.png in Resources */,
 				774318F01AA961C4001CF128 /* Back.png in Resources */,
+				774183421AC9CCFE00ABC5E6 /* DetailTaxi.xib in Resources */,
 				776090D91AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg in Resources */,
 				774318B21AA73DBA001CF128 /* LaunchScreen.xib in Resources */,
 				774318F31AA9636A001CF128 /* HomeView.storyboard in Resources */,
@@ -611,6 +633,7 @@
 				772BBE111ABF0EDA0098AB20 /* UIButton+AFNetworking.m in Sources */,
 				774318A71AA73DBA001CF128 /* TaxiNet.xcdatamodeld in Sources */,
 				774318A41AA73DBA001CF128 /* AppDelegate.m in Sources */,
+				7741833D1AC9CC8F00ABC5E6 /* UIViewController+CWPopup.m in Sources */,
 				774318AA1AA73DBA001CF128 /* ViewController.m in Sources */,
 				772BBE131ABF0EDA0098AB20 /* UIProgressView+AFNetworking.m in Sources */,
 				776090C71AADD59C00C21D94 /* REFrostedContainerViewController.m in Sources */,
@@ -630,6 +653,7 @@
 				772BBE101ABF0EDA0098AB20 /* UIAlertView+AFNetworking.m in Sources */,
 				776090D71AADD86D00C21D94 /* CompanyInfoViewController.m in Sources */,
 				772BBE0D1ABF0EDA0098AB20 /* AFURLSessionManager.m in Sources */,
+				774183411AC9CCFE00ABC5E6 /* DetailTaxi.m in Sources */,
 				774319001AAC415A001CF128 /* JPSThumbnailAnnotationView.m in Sources */,
 				772BBE061ABF0EDA0098AB20 /* AFHTTPRequestOperationManager.m in Sources */,
 				772BBE071ABF0EDA0098AB20 /* AFHTTPSessionManager.m in Sources */,
@@ -707,6 +731,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hung Pham Viet (SB2RE482N4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -727,6 +752,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -749,6 +775,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hung Pham Viet (SB2RE482N4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -762,6 +789,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -772,13 +800,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: fu.taxinet";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "e0892056-6c1c-4b06-8acb-e4321d362abb";
+				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
 			};
 			name = Debug;
 		};
@@ -786,13 +814,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: fu.taxinet";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "e0892056-6c1c-4b06-8acb-e4321d362abb";
+				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
 			};
 			name = Release;
 		};

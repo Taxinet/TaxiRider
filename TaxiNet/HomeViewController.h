@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "JPSThumbnailAnnotation.h"
+#import "UIViewController+CWPopup.h"
 
 @interface HomeViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate>
 - (IBAction)menu:(id)sender;

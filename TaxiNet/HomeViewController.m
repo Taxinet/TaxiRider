@@ -252,7 +252,7 @@
                             options: UIViewAnimationCurveEaseOut
                          animations:^{
                              CGRect f = self.ViewDetail.frame;
-                             f.origin.y = 428; // new y
+                             f.origin.y = 368; // new y
                              self.ViewDetail.frame = f;
                          }
                          completion:^(BOOL finished){
@@ -269,7 +269,7 @@
                             options: UIViewAnimationCurveEaseOut
                          animations:^{
                              CGRect f = self.ViewDetail.frame;
-                             f.origin.y = 428; // new y
+                             f.origin.y = 368; // new y
                              self.ViewDetail.frame = f;
                          }
                          completion:^(BOOL finished){
