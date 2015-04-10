@@ -17,20 +17,41 @@
     int locationTabPosition;
     UITapGestureRecognizer *gestureFrom, *gestureTo;
     MKRoute *routeDetails;
+    UITableView *mTableViewSuggest;
+    NSMutableArray *arrDataSearched;
+    
 }
+
+
+@property (nonatomic, strong) MKLocalSearch *localSearch;
 
 @end
 
 @implementation HomeViewController
 
-@synthesize mLocationFrom,mLocationTo,mImageFocus,mapview,viewLocationFrom,viewLocationTo;
+
+@synthesize mLocationFrom,mLocationTo,mImageFocus,mapview,viewLocationFrom,viewLocationTo,mSearchBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mSearchBar.delegate = self;
+    arrDataSearched = [[NSMutableArray alloc] init];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    mTableViewSuggest = [[UITableView alloc] initWithFrame:CGRectMake(0, self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height, screenWidth, 90)];
+    mTableViewSuggest.delegate = self;
+    mTableViewSuggest.dataSource = self;
+    
+    [self.view addSubview:mTableViewSuggest];
+    [mTableViewSuggest setHidden:YES];
+    mTableViewSuggest.backgroundColor =[UIColor colorWithRed:.1 green:.1 blue:.1 alpha: .4];
+    
+    
     //set anchor point focus point
     mImageFocus.layer.anchorPoint = CGPointMake(0.5, 1.0);
     mapview.delegate = self;
+    
     
     // Map View
 //    [self.mapview addAnnotations:[self annotations]];
@@ -59,6 +80,94 @@
      [[self.mLocationTo layer] setCornerRadius:8];
     
     
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [arrDataSearched count];;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"CellIdentifier";
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    
+    MKMapItem *entity = [arrDataSearched objectAtIndex:indexPath.row];
+    cell.textLabel.text = entity.placemark.title;
+    cell.textLabel.textColor = [UIColor whiteColor];
+    
+    return cell;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.4;
+    [mTableViewSuggest.layer addAnimation:animation forKey:nil];
+    [mTableViewSuggest setHidden:NO];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.4;
+    [mTableViewSuggest.layer addAnimation:animation forKey:nil];
+    [mTableViewSuggest setHidden:YES];
+    [arrDataSearched removeAllObjects];
+    [mTableViewSuggest reloadData];
+    searchBar.text = @"";
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (self.localSearch.searching)
+    {
+        [self.localSearch cancel];
+    }
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+    
+    request.naturalLanguageQuery = searchText;
+    
+    MKLocalSearchCompletionHandler completionHandler = ^(MKLocalSearchResponse *response, NSError *error)
+    {
+        if (error != nil)
+        {
+//            NSString *errorStr = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find places"
+//                                                            message:errorStr
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"OK"
+//                                                  otherButtonTitles:nil];
+//            [alert show];
+            NSLog(@"Could not find places");
+        }
+        else
+        {
+            [arrDataSearched addObjectsFromArray:[response mapItems]];
+            [mTableViewSuggest reloadData];
+        }
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    };
+    
+    if (self.localSearch != nil)
+    {
+        self.localSearch = nil;
+    }
+    self.localSearch = [[MKLocalSearch alloc] initWithRequest:request];
+    
+    [self.localSearch startWithCompletionHandler:completionHandler];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)selectLocationFrom:(UITapGestureRecognizer *)recognizer {
@@ -185,6 +294,8 @@
     [self.frostedViewController presentMenuViewController];
 }
 - (IBAction)findWay:(id)sender {
+    
+    [self.mapview removeOverlays:self.mapview.overlays];
     
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
     
