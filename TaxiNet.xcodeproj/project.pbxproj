@@ -78,6 +78,8 @@
 		776090D41AADD7F100C21D94 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776090D31AADD7F100C21D94 /* ProfileViewController.m */; };
 		776090D71AADD86D00C21D94 /* CompanyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776090D61AADD86D00C21D94 /* CompanyInfoViewController.m */; };
 		776090D91AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 776090D81AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg */; };
+		7772F4451AD7CFCD00467247 /* From.png in Resources */ = {isa = PBXBuildFile; fileRef = 7772F4431AD7CFCD00467247 /* From.png */; };
+		7772F4461AD7CFCD00467247 /* to.png in Resources */ = {isa = PBXBuildFile; fileRef = 7772F4441AD7CFCD00467247 /* to.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +211,8 @@
 		776090D51AADD86D00C21D94 /* CompanyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyInfoViewController.h; sourceTree = "<group>"; };
 		776090D61AADD86D00C21D94 /* CompanyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoViewController.m; sourceTree = "<group>"; };
 		776090D81AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10487216_687099491374102_218448137921331276_n.jpg; sourceTree = "<group>"; };
+		7772F4431AD7CFCD00467247 /* From.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = From.png; sourceTree = "<group>"; };
+		7772F4441AD7CFCD00467247 /* to.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = to.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +391,8 @@
 		774318C81AA74568001CF128 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				7772F4431AD7CFCD00467247 /* From.png */,
+				7772F4441AD7CFCD00467247 /* to.png */,
 				776090D81AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg */,
 				776090AE1AAD728F00C21D94 /* BarButton.png */,
 				776090AC1AAD722400C21D94 /* BarLogin.png */,
@@ -596,9 +602,11 @@
 				774318ED1AA96029001CF128 /* checkBox.png in Resources */,
 				774318AD1AA73DBA001CF128 /* Main.storyboard in Resources */,
 				774318CE1AA7465A001CF128 /* btn_login.png in Resources */,
+				7772F4461AD7CFCD00467247 /* to.png in Resources */,
 				774318E51AA75604001CF128 /* backgro_login.png in Resources */,
 				776090AD1AAD722400C21D94 /* BarLogin.png in Resources */,
 				774318EE1AA96029001CF128 /* user_register.png in Resources */,
+				7772F4451AD7CFCD00467247 /* From.png in Resources */,
 				774318EC1AA96029001CF128 /* checkbox_non.png in Resources */,
 				774318D01AA7465A001CF128 /* splast.png in Resources */,
 				774318DB1AA74DAE001CF128 /* Button_fb.png in Resources */,
@@ -800,7 +808,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TaxiNet/Info.plist;
@@ -808,7 +815,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
 				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
-
 			};
 			name = Debug;
 		};

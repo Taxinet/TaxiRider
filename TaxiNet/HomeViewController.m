@@ -33,7 +33,7 @@
     mapview.delegate = self;
     
     // Map View
-    [self.mapview addAnnotations:[self annotations]];
+//    [self.mapview addAnnotations:[self annotations]];
     [self performSelector:@selector(zoomInToMyLocation)
                withObject:nil
                afterDelay:1];
@@ -47,22 +47,33 @@
     [self.viewLocationTo addGestureRecognizer:gestureTo];
     
     [self selectLocationFrom:gestureFrom];
+    [self.viewLocationFrom setBackgroundColor:[UIColor colorWithRed:84.0f/255.0f
+                                                             green:142.0f/255.0f
+                                                              blue:209.0f/255.0f
+                                                             alpha:1.0f]];
+    
+    [self.viewLocationTo setBackgroundColor:[UIColor colorWithRed:84.0f/255.0f
+                                                              green:142.0f/255.0f
+                                                               blue:209.0f/255.0f
+                                                              alpha:1.0f]];
+     [[self.mLocationTo layer] setCornerRadius:8];
+    
     
 }
 
 - (void)selectLocationFrom:(UITapGestureRecognizer *)recognizer {
-    [viewLocationFrom setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
-    [viewLocationTo setBackgroundColor:[UIColor whiteColor]];
-    [mLocationFrom setTextColor:[UIColor whiteColor]];
-    [mLocationTo setTextColor:[UIColor blackColor]];
+//    [viewLocationFrom setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
+//    [viewLocationTo setBackgroundColor:[UIColor whiteColor]];
+//    [mLocationFrom setTextColor:[UIColor whiteColor]];
+//    [mLocationTo setTextColor:[UIColor blackColor]];
     locationTabPosition = 0;
 }
 
 - (void)selectLocationTo:(UITapGestureRecognizer *)recognizer {
-    [viewLocationTo setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
-    [viewLocationFrom setBackgroundColor:[UIColor whiteColor]];
-    [mLocationTo setTextColor:[UIColor whiteColor]];
-    [mLocationFrom setTextColor:[UIColor blackColor]];
+//    [viewLocationTo setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
+//    [viewLocationFrom setBackgroundColor:[UIColor whiteColor]];
+//    [mLocationTo setTextColor:[UIColor whiteColor]];
+//    [mLocationFrom setTextColor:[UIColor blackColor]];
     locationTabPosition = 1;
 }
 
@@ -119,9 +130,15 @@
              
              if (locationTabPosition == 0) {
                  mLocationFrom.text = address;
+                 if ([address length]>30) {
+                     mLocationFrom.text=[address substringToIndex:[address length] - 27];
+                 }
                  placeFrom = [[MKPlacemark alloc] initWithCoordinate:myCoOrdinate addressDictionary:placemark.addressDictionary];
              } else {
                  mLocationTo.text = address;
+                 if ([address length]>30) {
+                     mLocationTo.text=[address substringToIndex:[address length] - 27];
+                 }
                  placeTo = [[MKPlacemark alloc] initWithCoordinate:myCoOrdinate addressDictionary:placemark.addressDictionary];
              }
              
@@ -192,6 +209,9 @@
         }
     }];
     
+}
+
+- (IBAction)BookNow:(id)sender {
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
