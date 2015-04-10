@@ -58,9 +58,30 @@
                                                               alpha:1.0f]];
      [[self.mLocationTo layer] setCornerRadius:8];
     
-    
+//    [UIView animateWithDuration:.7
+//                     animations:^{
+//                         //what you would like to animate
+//                         
+//                     }completion:^(BOOL finished){
+//                         //do something when the animation finishes
+//                     }];
+//    MKCoordinateRegion region = _destinationRegion;
+//    MKMapRect rect = MKMapRectForCoordinateRegion(_destinationRegion);
+//    MKMapRect intersection = MKMapRectIntersection(rect, _mapView.visibleMapRect);
+//    if (MKMapRectIsNull(intersection)) {
+//        rect = MKMapRectUnion(rect, _mapView.visibleMapRect);
+//        region = MKCoordinateRegionForMapRect(rect);
+//        _intermediateAnimation = YES;
+//    }
+//    [_mapView setRegion:region animated:YES];
 }
-
+//-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+//{
+//    if (_intermediateAnimation) {
+//        _intermediateAnimation = NO;
+//        [_mapView setRegion:_destinationRegion animated:YES];
+//    }
+//}
 - (void)selectLocationFrom:(UITapGestureRecognizer *)recognizer {
 //    [viewLocationFrom setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
 //    [viewLocationTo setBackgroundColor:[UIColor whiteColor]];
