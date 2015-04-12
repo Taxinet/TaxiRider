@@ -88,6 +88,8 @@
 		8F3DC48E1AD99881009A2FEF /* iconlocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC48D1AD99881009A2FEF /* iconlocation.png */; };
 		8F5D11E61AD7C02300C0D453 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D11E41AD7C02200C0D453 /* FBSDKCoreKit.framework */; };
 		8F5D11E71AD7C02300C0D453 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D11E51AD7C02300C0D453 /* FBSDKLoginKit.framework */; };
+		7772F4451AD7CFCD00467247 /* From.png in Resources */ = {isa = PBXBuildFile; fileRef = 7772F4431AD7CFCD00467247 /* From.png */; };
+		7772F4461AD7CFCD00467247 /* to.png in Resources */ = {isa = PBXBuildFile; fileRef = 7772F4441AD7CFCD00467247 /* to.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +232,8 @@
 		8F3DC48D1AD99881009A2FEF /* iconlocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconlocation.png; path = ../../../../../../Desktop/picTN/iconlocation.png; sourceTree = "<group>"; };
 		8F5D11E41AD7C02200C0D453 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8F5D11E51AD7C02300C0D453 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		7772F4431AD7CFCD00467247 /* From.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = From.png; sourceTree = "<group>"; };
+		7772F4441AD7CFCD00467247 /* to.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = to.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				8F3DC4801AD98F27009A2FEF /* icon */,
+				7772F4431AD7CFCD00467247 /* From.png */,
+				7772F4441AD7CFCD00467247 /* to.png */,
 				776090D81AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg */,
 				776090AE1AAD728F00C21D94 /* BarButton.png */,
 				776090AC1AAD722400C21D94 /* BarLogin.png */,
@@ -639,9 +645,11 @@
 				8F3DC48C1AD98F46009A2FEF /* star.png in Resources */,
 				774318AD1AA73DBA001CF128 /* Main.storyboard in Resources */,
 				774318CE1AA7465A001CF128 /* btn_login.png in Resources */,
+				7772F4461AD7CFCD00467247 /* to.png in Resources */,
 				774318E51AA75604001CF128 /* backgro_login.png in Resources */,
 				776090AD1AAD722400C21D94 /* BarLogin.png in Resources */,
 				774318EE1AA96029001CF128 /* user_register.png in Resources */,
+				7772F4451AD7CFCD00467247 /* From.png in Resources */,
 				774318EC1AA96029001CF128 /* checkbox_non.png in Resources */,
 				774318D01AA7465A001CF128 /* splast.png in Resources */,
 				774318DB1AA74DAE001CF128 /* Button_fb.png in Resources */,
