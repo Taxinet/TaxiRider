@@ -44,35 +44,58 @@
 }
 
 - (IBAction)Login:(id)sender {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
-    HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
-//    
-//    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
-//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-//                                                         message:NSLocalizedString(@"please input username",nil)
-//                                                        delegate:self
-//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-//                                               otherButtonTitles:nil, nil];
-//        [alertTmp show];
-//    }
-//    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
-//    {
-//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-//                                                         message:NSLocalizedString(@"please input Password",nil)
-//                                                        delegate:self
-//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-//                                               otherButtonTitles:nil, nil];
-//        [alertTmp show];
-//    }
-//    else
-//    {
-//        [HUD show:YES];
-//        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
-//    }
+    
+    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input username",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
+    {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input Password",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else
+    {
+        [HUD show:YES];
+        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
+    }
 }
 -(void)checkLogin
 {
+    NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
+    // save data login
+    [loginInfo setObject:self.emailLogin.text forKey:@"username"];
+    [loginInfo setObject:self.passLogin.text forKey:@"password"];
+    [loginInfo setObject:[self.dataUser objectForKey:@"email"] forKey:@"email"];
+    [loginInfo setObject:[self.dataUser objectForKey:@"firstName"] forKey:@"firstName"];
+    [loginInfo setObject:[self.dataUser objectForKey:@"lastName"] forKey:@"lastName"];
+    [loginInfo setObject:[self.dataUser objectForKey:@"phone"] forKey:@"phone"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"homeAddress"] forKey:@"homeAddress"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"homeAddressLng"] forKey:@"homeAddressLng"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"homeAddressLat"] forKey:@"homeAddressLat"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"image"] forKey:@"image"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"latitude"] forKey:@"latitude"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"longitude"] forKey:@"longitude"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"message"] forKey:@"message"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"officeAddress"] forKey:@"officeAddress"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"officeAddressLng"] forKey:@"officeAddressLng"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"officeAddressLat"] forKey:@"officeAddressLat"];
+    [loginInfo setObject:[self.dataUser objectForKey:@"riderId"] forKey:@"riderId"];
+    
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"role"] forKey:@"role"];
+    //    [loginInfo setObject:[self.dataUser objectForKey:@"type"] forKey:@"type"];
+    
+    
+    NSLog(@"Test login data: %@",[self.dataUser objectForKey:@"email"]);
+    NSLog(@"Test login data: %@",self.dataUser);
     NSLog(@"data: %@",self.dataUser);
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
     HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];

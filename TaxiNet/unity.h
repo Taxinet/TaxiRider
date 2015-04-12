@@ -15,4 +15,12 @@
 +(void)login_by_email : (NSString*)email pass:(NSString *)pass owner:(LoginViewController*)owner;
 +(void)register_by_email : (NSString*)email password:(NSString *)pass firstname:(NSString *)firstname lastname:(NSString *)lastname phone:(NSString *)phone language:(NSString *)language usergroup:(NSString *)usergroup countrycode:(NSString *)countrycode;
 
++(void)updateByRiderById : (NSString*)riderId
+                firstName:(NSString*)firstName
+                 lastName:(NSString*)lastName
+                    email:(NSString*)email
+                  phoneNo:(NSString*)phoneNo;
++(void)getNearTaxi:(NSString*)latitude andLongtitude:(NSString*)longtitude;
+
+
 @end
