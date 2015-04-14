@@ -33,8 +33,6 @@
     return YES;
 }
 
-
-
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     NSString* deviceToke1n = [[[[deviceToken description]

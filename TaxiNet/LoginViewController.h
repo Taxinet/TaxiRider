@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 @interface LoginViewController : UIViewController
 - (IBAction)back:(id)sender;
 - (IBAction)Login:(id)sender;
@@ -15,5 +17,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *FBLogin;
 @property (weak,nonatomic) NSDictionary *dataUser;
 -(void)checkLogin;
+
+@property (strong, nonatomic) IBOutlet FBSDKLoginButton *FBButtonLoginTaxinet;
+
+- (IBAction)FBLoginBtn:(id)sender;
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+              error:	(NSError *)error;
+
+- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton;
 
 @end
