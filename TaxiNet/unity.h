@@ -20,7 +20,13 @@
                  lastName:(NSString*)lastName
                     email:(NSString*)email
                   phoneNo:(NSString*)phoneNo;
-+(void)getNearTaxi:(NSString*)latitude andLongtitude:(NSString*)longtitude;
++(void)getNearTaxi:(NSString*)latitude
+     andLongtitude:(NSString*)longtitude;
+
++(void)findPromotionTrips : (NSString*)formLatitude
+          andfromLongitude: (NSString*)fromLongitude
+            withToLatitude: (NSString*)toLatitude
+            andToLongitude: (NSString*)toLongitude ;
 
 
 @end
