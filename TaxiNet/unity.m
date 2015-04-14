@@ -11,6 +11,7 @@
 #define URL_SIGNIN @"http://localhost:8080/TN/restServices/riderController/Login"
 #define UPDATE_URL @"http://localhost:8080/TN/restServices/riderController/UpdateRider"
 #define NEAR_TAXI_URL @"http://localhost:8080/TN/restServices/DriverController/getNearDriver"
+#define FIND_PROMOTION_TRIP_URL @"http://localhost:8080/TN/restServices/PromotionTripController/FindPromotionTip"
 
 
 @implementation unity
@@ -95,4 +96,25 @@
               
           }];
 }
+
++(void)findPromotionTrips:(NSString *)formLatitude
+         andfromLongitude:(NSString *)fromLongitude
+           withToLatitude:(NSString *)toLatitude
+           andToLongitude:(NSString *)toLongitude
+{
+    NSString *url = [NSString stringWithFormat:@"%@",FIND_PROMOTION_TRIP_URL];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *param = @{@"fromLatitude":fromLongitude, @"fromLongitude":fromLongitude, @"toLatitude":toLatitude, @"toLongitude":toLongitude};
+    [manager POST:url parameters:param
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              
+          }];
+    
+    
+}
+
+
 @end

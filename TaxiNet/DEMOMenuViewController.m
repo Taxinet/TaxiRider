@@ -13,6 +13,9 @@
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
 #import "CompanyInfoViewController.h"
+#import "ShowPromotionTrips.h"
+#import "ShowMyPromotionTrip.h"
+
 @interface DEMOMenuViewController (){
     AppDelegate*appDelegate;
     UIImageView *imageView;
@@ -100,7 +103,16 @@
         CompanyInfoViewController *controller = (CompanyInfoViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"CompanyInfoViewController"];
         [navigationController pushViewController:controller animated:YES];
     }
-
+    else if (indexPath.row == 3)
+    {
+        ShowPromotionTrips *controller = (ShowPromotionTrips*)[mainStoryboard instantiateViewControllerWithIdentifier: @"ShowPromotionTrip"];
+        [navigationController pushViewController:controller animated:YES];
+    }
+    else if (indexPath.row == 4)
+    {
+        ShowMyPromotionTrip *controller = (ShowMyPromotionTrip *)[mainStoryboard instantiateViewControllerWithIdentifier: @"ShowMyPromotionTrip"];
+        [navigationController pushViewController:controller animated:YES];
+    }
     self.frostedViewController.contentViewController = navigationController;
     [self.frostedViewController hideMenuViewController];
     
@@ -121,7 +133,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 6;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,7 +145,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-        NSArray *titles = @[@"Home", @"Profile", @"History", @"About US", @"Contact",@"Logout"];
+        NSArray *titles = @[@"Home", @"Profile", @"History", @"Promotion Trips",@"My Promotion Trips", @"Contact",@"Logout"];
         cell.textLabel.text = titles[indexPath.row];
     
     return cell;
