@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -29,6 +29,10 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mjm-Zk-AGT">
                                         <rect key="frame" x="145" y="154" width="30" height="46"/>
                                     </imageView>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufT-CU-KV9">
+                                        <rect key="frame" x="0.0" y="15" width="320" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -106,10 +110,6 @@
                                     <action selector="findWay:" destination="SRb-6o-AC9" eventType="touchUpInside" id="rA6-tf-2zj"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gV4-24-aml">
-                                <rect key="frame" x="0.0" y="54" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -119,8 +119,9 @@
                         <outlet property="mImageFocus" destination="Mjm-Zk-AGT" id="A7b-Yg-o3E"/>
                         <outlet property="mLocationFrom" destination="7YG-gS-rmF" id="VGE-QT-2HI"/>
                         <outlet property="mLocationTo" destination="YdL-vj-JBk" id="Lne-YE-4bE"/>
+                        <outlet property="mSearchBar" destination="ufT-CU-KV9" id="SQb-X6-mvi"/>
                         <outlet property="mapview" destination="Xtt-u2-obl" id="Yto-YO-S10"/>
-                        <outlet property="searchDisplayController" destination="AYd-bD-BeI" id="ZA9-kX-ZQ4"/>
+                        <outlet property="searchDisplayController" destination="7OH-TE-BK7" id="96A-lK-s2A"/>
                         <outlet property="viewLocationFrom" destination="jYA-9U-gh4" id="DO2-oO-dgO"/>
                         <outlet property="viewLocationTo" destination="ihz-mB-7aZ" id="uQW-bK-ccB"/>
                     </connections>
@@ -132,6 +133,14 @@
                         <outlet property="searchContentsController" destination="SRb-6o-AC9" id="0Ox-Bv-Uvo"/>
                         <outlet property="searchResultsDataSource" destination="SRb-6o-AC9" id="JZ2-gP-N7o"/>
                         <outlet property="searchResultsDelegate" destination="SRb-6o-AC9" id="vIm-rM-guO"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="7OH-TE-BK7">
+                    <connections>
+                        <outlet property="delegate" destination="SRb-6o-AC9" id="Skk-6W-V1S"/>
+                        <outlet property="searchContentsController" destination="SRb-6o-AC9" id="44V-oh-QJD"/>
+                        <outlet property="searchResultsDataSource" destination="SRb-6o-AC9" id="v0b-SN-PMw"/>
+                        <outlet property="searchResultsDelegate" destination="SRb-6o-AC9" id="kKU-cz-WQ7"/>
                     </connections>
                 </searchDisplayController>
             </objects>

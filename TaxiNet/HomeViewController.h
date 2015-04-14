@@ -11,7 +11,7 @@
 #import "JPSThumbnailAnnotation.h"
 #import "UIViewController+CWPopup.h"
 
-@interface HomeViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate,UITextFieldDelegate>
+@interface HomeViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate,UITextFieldDelegate,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
 - (IBAction)menu:(id)sender;
 @property (weak, nonatomic) IBOutlet MKMapView *mapview;
 @property (weak, nonatomic) IBOutlet UIView *ViewDetail;
@@ -23,4 +23,5 @@
 @property (weak, nonatomic) IBOutlet UIView *viewLocationTo;
 - (IBAction)findWay:(id)sender;
 - (IBAction)BookNow:(id)sender;
+@property (weak, nonatomic) IBOutlet UISearchBar *mSearchBar;
 @end
