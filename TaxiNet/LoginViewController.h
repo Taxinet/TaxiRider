@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "AppDelegate.h"
 @interface LoginViewController : UIViewController
 - (IBAction)back:(id)sender;
 - (IBAction)Login:(id)sender;

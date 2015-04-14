@@ -51,7 +51,7 @@
     //set anchor point focus point
     mImageFocus.layer.anchorPoint = CGPointMake(0.5, 1.0);
     mapview.delegate = self;
-    
+
     
     // Map View
 //    [self.mapview addAnnotations:[self annotations]];
@@ -77,15 +77,40 @@
                                                               green:142.0f/255.0f
                                                                blue:209.0f/255.0f
                                                               alpha:1.0f]];
-     [[self.mLocationTo layer] setCornerRadius:8];
     
-    
+//    [UIView animateWithDuration:.7
+//                     animations:^{
+//                         //what you would like to animate
+//                         
+//                     }completion:^(BOOL finished){
+//                         //do something when the animation finishes
+//                     }];
+//    MKCoordinateRegion region = _destinationRegion;
+//    MKMapRect rect = MKMapRectForCoordinateRegion(_destinationRegion);
+//    MKMapRect intersection = MKMapRectIntersection(rect, _mapView.visibleMapRect);
+//    if (MKMapRectIsNull(intersection)) {
+//        rect = MKMapRectUnion(rect, _mapView.visibleMapRect);
+//        region = MKCoordinateRegionForMapRect(rect);
+//        _intermediateAnimation = YES;
+//    }
+//    [_mapView setRegion:region animated:YES];
 }
+
+//-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+//{
+//    if (_intermediateAnimation) {
+//        _intermediateAnimation = NO;
+//        [_mapView setRegion:_destinationRegion animated:YES];
+//    }
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [arrDataSearched count];;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 30;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -126,7 +151,12 @@
     [mTableViewSuggest.layer addAnimation:animation forKey:nil];
     [mTableViewSuggest setHidden:YES];
     [arrDataSearched removeAllObjects];
+//    CGRect bounds = mTableViewSuggest.frame;
+//    bounds.size.height=[arrDataSearched count]*20;
+//    mTableViewSuggest.frame=bounds;
+
     [mTableViewSuggest reloadData];
+    
     searchBar.text = @"";
 }
 
@@ -143,18 +173,16 @@
     {
         if (error != nil)
         {
-//            NSString *errorStr = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find places"
-//                                                            message:errorStr
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"OK"
-//                                                  otherButtonTitles:nil];
-//            [alert show];
             NSLog(@"Could not find places");
         }
         else
         {
             [arrDataSearched addObjectsFromArray:[response mapItems]];
+            CGRect bounds = [mTableViewSuggest bounds];
+//            [mTableViewSuggest setBounds:CGRectMake(bounds.origin.x,
+//                                            self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height,
+//                                            bounds.size.width,
+//                                           [arrDataSearched count]* 30)];
             [mTableViewSuggest reloadData];
         }
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

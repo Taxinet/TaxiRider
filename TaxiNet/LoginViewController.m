@@ -18,6 +18,7 @@
 @implementation LoginViewController
 {
     MBProgressHUD *HUD;
+    AppDelegate*appdelegate;
 
 }
 
@@ -27,6 +28,8 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.view addSubview:HUD];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"offLoginloading" object:nil];
+    appdelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+
 }
 -(void) receiveNotification:(NSNotification *) notification
 {
@@ -46,28 +49,31 @@
 
 - (IBAction)Login:(id)sender {
     
-    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
-        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-                                                         message:NSLocalizedString(@"please input username",nil)
-                                                        delegate:self
-                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-                                               otherButtonTitles:nil, nil];
-        [alertTmp show];
-    }
-    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
-    {
-        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-                                                         message:NSLocalizedString(@"please input Password",nil)
-                                                        delegate:self
-                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-                                               otherButtonTitles:nil, nil];
-        [alertTmp show];
-    }
-    else
-    {
-        [HUD show:YES];
-        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
-    }
+//    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
+//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+//                                                         message:NSLocalizedString(@"please input username",nil)
+//                                                        delegate:self
+//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+//                                               otherButtonTitles:nil, nil];
+//        [alertTmp show];
+//    }
+//    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
+//    {
+//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+//                                                         message:NSLocalizedString(@"please input Password",nil)
+//                                                        delegate:self
+//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+//                                               otherButtonTitles:nil, nil];
+//        [alertTmp show];
+//    }
+//    else
+//    {
+//        [HUD show:YES];
+//        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
+//    }
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
+    HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 -(void)checkLogin
 {
@@ -75,6 +81,8 @@
     _dataUser = userInfor.dataUser;
     NSLog(@"Store Data: %@",_dataUser);
     NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
+    appdelegate.yoursefl=(NSMutableDictionary*)self.dataUser;
+
     // save data login
     //NSString *passLog = @"******";
     [loginInfo setObject:self.emailLogin.text forKey:@"username"];
