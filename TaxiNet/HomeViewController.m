@@ -39,7 +39,7 @@
     arrDataSearched = [[NSMutableArray alloc] init];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
-    mTableViewSuggest = [[UITableView alloc] initWithFrame:CGRectMake(0, self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height, screenWidth, 0)];
+    mTableViewSuggest = [[UITableView alloc] initWithFrame:CGRectMake(0, self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height, screenWidth, 90)];
     mTableViewSuggest.delegate = self;
     mTableViewSuggest.dataSource = self;
     
@@ -179,10 +179,10 @@
         {
             [arrDataSearched addObjectsFromArray:[response mapItems]];
             CGRect bounds = [mTableViewSuggest bounds];
-            [mTableViewSuggest setBounds:CGRectMake(bounds.origin.x,
-                                            bounds.origin.y,
-                                            bounds.size.width,
-                                           [arrDataSearched count]* 30)];
+//            [mTableViewSuggest setBounds:CGRectMake(bounds.origin.x,
+//                                            self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height,
+//                                            bounds.size.width,
+//                                           [arrDataSearched count]* 30)];
             [mTableViewSuggest reloadData];
         }
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
