@@ -17,6 +17,7 @@
 @implementation LoginViewController
 {
     MBProgressHUD *HUD;
+    AppDelegate*appdelegate;
 
 }
 
@@ -26,6 +27,8 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.view addSubview:HUD];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"offLoginloading" object:nil];
+    appdelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+
 }
 -(void) receiveNotification:(NSNotification *) notification
 {
@@ -74,6 +77,8 @@
 -(void)checkLogin
 {
     NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
+    appdelegate.yoursefl=(NSMutableDictionary*)self.dataUser;
+
     // save data login
     [loginInfo setObject:self.emailLogin.text forKey:@"username"];
     [loginInfo setObject:self.passLogin.text forKey:@"password"];
