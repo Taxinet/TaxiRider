@@ -15,12 +15,14 @@
 #import "CompanyInfoViewController.h"
 #import "ShowPromotionTrips.h"
 #import "ShowMyPromotionTrip.h"
+#import "ViewController.h"
 
 @interface DEMOMenuViewController (){
     AppDelegate*appDelegate;
     UIImageView *imageView;
     UILabel *label;
     UIStoryboard *mainStoryboard;
+    UIStoryboard *mainStoryboard1;
     NavigationController *navigationController;
     
 }
@@ -32,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    mainStoryboard1 = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
     navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
     HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
@@ -113,6 +116,16 @@
         ShowMyPromotionTrip *controller = (ShowMyPromotionTrip *)[mainStoryboard instantiateViewControllerWithIdentifier: @"ShowMyPromotionTrip"];
         [navigationController pushViewController:controller animated:YES];
     }
+    else if (indexPath.row == 5)
+    {
+        
+    }
+    else if (indexPath.row == 6)
+    {
+        ViewController  *controller = (ViewController *)[mainStoryboard1 instantiateViewControllerWithIdentifier: @"ViewController"];
+        [navigationController pushViewController:controller animated:YES];
+    }
+    
     self.frostedViewController.contentViewController = navigationController;
     [self.frostedViewController hideMenuViewController];
     

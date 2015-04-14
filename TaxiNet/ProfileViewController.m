@@ -55,7 +55,8 @@ NSString *a6 = @"";
     NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
     
     a1 = [loginInfo stringForKey:@"username"];
-    a2 = [loginInfo stringForKey:@"password"];
+    //a2 = [loginInfo stringForKey:@"password"];
+    a2 = @"********";
     a3 = [loginInfo stringForKey:@"firstName"];
     a4 = [loginInfo stringForKey:@"lastName"];
     a5 = [loginInfo stringForKey:@"email"];

@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "MBProgressHUD.h"
 #import "unity.h"
+#import "UserInfo.h"
 @interface LoginViewController ()
 
 @end
@@ -70,8 +71,12 @@
 }
 -(void)checkLogin
 {
+    UserInfo *userInfor;
+    _dataUser = userInfor.dataUser;
+    NSLog(@"Store Data: %@",_dataUser);
     NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
     // save data login
+    //NSString *passLog = @"******";
     [loginInfo setObject:self.emailLogin.text forKey:@"username"];
     [loginInfo setObject:self.passLogin.text forKey:@"password"];
     [loginInfo setObject:[self.dataUser objectForKey:@"email"] forKey:@"email"];
