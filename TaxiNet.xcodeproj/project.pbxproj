@@ -89,13 +89,6 @@
 		8F025F3A1ADC3EA00044087F /* CustomMyPromotionTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F025F391ADC3EA00044087F /* CustomMyPromotionTrip.m */; };
 		8F025F3C1ADC3EC50044087F /* CustomMyPromotion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F025F3B1ADC3EC50044087F /* CustomMyPromotion.xib */; };
 		8F3DC47F1AD97FC9009A2FEF /* ChangeAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3DC47E1AD97FC9009A2FEF /* ChangeAddressViewController.m */; };
-		8F3DC4871AD98F46009A2FEF /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC4811AD98F46009A2FEF /* address.png */; };
-		8F3DC4881AD98F46009A2FEF /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC4821AD98F46009A2FEF /* book.png */; };
-		8F3DC4891AD98F46009A2FEF /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC4831AD98F46009A2FEF /* calender.png */; };
-		8F3DC48A1AD98F46009A2FEF /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC4841AD98F46009A2FEF /* contact.png */; };
-		8F3DC48B1AD98F46009A2FEF /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC4851AD98F46009A2FEF /* like.png */; };
-		8F3DC48C1AD98F46009A2FEF /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC4861AD98F46009A2FEF /* star.png */; };
-		8F3DC48E1AD99881009A2FEF /* iconlocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3DC48D1AD99881009A2FEF /* iconlocation.png */; };
 		8F9D13B31ADD56AD00EE8AB4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9D13B11ADD56AD00EE8AB4 /* FBSDKCoreKit.framework */; };
 		8F9D13B41ADD56AD00EE8AB4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9D13B21ADD56AD00EE8AB4 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -246,13 +239,6 @@
 		8F025F3B1ADC3EC50044087F /* CustomMyPromotion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMyPromotion.xib; sourceTree = "<group>"; };
 		8F3DC47D1AD97FC9009A2FEF /* ChangeAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeAddressViewController.h; sourceTree = "<group>"; };
 		8F3DC47E1AD97FC9009A2FEF /* ChangeAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeAddressViewController.m; sourceTree = "<group>"; };
-		8F3DC4811AD98F46009A2FEF /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = address.png; path = ../../../../../../Desktop/picTN/address.png; sourceTree = "<group>"; };
-		8F3DC4821AD98F46009A2FEF /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = book.png; path = ../../../../../../Desktop/picTN/book.png; sourceTree = "<group>"; };
-		8F3DC4831AD98F46009A2FEF /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calender.png; path = ../../../../../../Desktop/picTN/calender.png; sourceTree = "<group>"; };
-		8F3DC4841AD98F46009A2FEF /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contact.png; path = ../../../../../../Desktop/picTN/contact.png; sourceTree = "<group>"; };
-		8F3DC4851AD98F46009A2FEF /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../../../../Desktop/picTN/like.png; sourceTree = "<group>"; };
-		8F3DC4861AD98F46009A2FEF /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../../../../Desktop/picTN/star.png; sourceTree = "<group>"; };
-		8F3DC48D1AD99881009A2FEF /* iconlocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconlocation.png; path = ../../../../../../Desktop/picTN/iconlocation.png; sourceTree = "<group>"; };
 		8F9D13B11ADD56AD00EE8AB4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = TaxiNet/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8F9D13B21ADD56AD00EE8AB4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = TaxiNet/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -372,8 +358,6 @@
 		774318921AA73DB9001CF128 = {
 			isa = PBXGroup;
 			children = (
-				8F9D13B11ADD56AD00EE8AB4 /* FBSDKCoreKit.framework */,
-				8F9D13B21ADD56AD00EE8AB4 /* FBSDKLoginKit.framework */,
 				776090B81AAD864500C21D94 /* Framework */,
 				7743189D1AA73DB9001CF128 /* TaxiNet */,
 				774318BA1AA73DBA001CF128 /* TaxiNetTests */,
@@ -539,6 +523,8 @@
 		776090B81AAD864500C21D94 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				8F9D13B11ADD56AD00EE8AB4 /* FBSDKCoreKit.framework */,
+				8F9D13B21ADD56AD00EE8AB4 /* FBSDKLoginKit.framework */,
 				776090B61AAD81F300C21D94 /* CoreGraphics.framework */,
 				776090B41AAD81E600C21D94 /* Foundation.framework */,
 				776090B21AAD81DD00C21D94 /* UIKit.framework */,
@@ -590,13 +576,6 @@
 		8F3DC4801AD98F27009A2FEF /* icon */ = {
 			isa = PBXGroup;
 			children = (
-				8F3DC48D1AD99881009A2FEF /* iconlocation.png */,
-				8F3DC4811AD98F46009A2FEF /* address.png */,
-				8F3DC4821AD98F46009A2FEF /* book.png */,
-				8F3DC4831AD98F46009A2FEF /* calender.png */,
-				8F3DC4841AD98F46009A2FEF /* contact.png */,
-				8F3DC4851AD98F46009A2FEF /* like.png */,
-				8F3DC4861AD98F46009A2FEF /* star.png */,
 			);
 			name = icon;
 			sourceTree = "<group>";
@@ -684,7 +663,6 @@
 			files = (
 				774318DC1AA74DAE001CF128 /* text_email.png in Resources */,
 				774318ED1AA96029001CF128 /* checkBox.png in Resources */,
-				8F3DC48C1AD98F46009A2FEF /* star.png in Resources */,
 				774318AD1AA73DBA001CF128 /* Main.storyboard in Resources */,
 				8F025F2F1ADC28DB0044087F /* yourlogohere.png in Resources */,
 				774318CE1AA7465A001CF128 /* btn_login.png in Resources */,
@@ -697,24 +675,18 @@
 				774318EC1AA96029001CF128 /* checkbox_non.png in Resources */,
 				774318D01AA7465A001CF128 /* splast.png in Resources */,
 				774318DB1AA74DAE001CF128 /* Button_fb.png in Resources */,
-				8F3DC48B1AD98F46009A2FEF /* like.png in Resources */,
 				774318CF1AA7465A001CF128 /* btn_regis.png in Resources */,
 				774318D41AA74794001CF128 /* AppLogin.storyboard in Resources */,
 				774318DD1AA74DAE001CF128 /* text_pass.png in Resources */,
-				8F3DC4891AD98F46009A2FEF /* calender.png in Resources */,
 				774318F01AA961C4001CF128 /* Back.png in Resources */,
 				774183421AC9CCFE00ABC5E6 /* DetailTaxi.xib in Resources */,
 				776090D91AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg in Resources */,
 				774318B21AA73DBA001CF128 /* LaunchScreen.xib in Resources */,
 				774318F31AA9636A001CF128 /* HomeView.storyboard in Resources */,
-				8F3DC48E1AD99881009A2FEF /* iconlocation.png in Resources */,
 				8F025F3C1ADC3EC50044087F /* CustomMyPromotion.xib in Resources */,
 				774319031AAC41AD001CF128 /* pinMap.png in Resources */,
 				776090AF1AAD728F00C21D94 /* BarButton.png in Resources */,
-				8F3DC48A1AD98F46009A2FEF /* contact.png in Resources */,
-				8F3DC4871AD98F46009A2FEF /* address.png in Resources */,
 				774318AF1AA73DBA001CF128 /* Images.xcassets in Resources */,
-				8F3DC4881AD98F46009A2FEF /* book.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
