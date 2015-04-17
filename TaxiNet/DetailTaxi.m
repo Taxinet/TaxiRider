@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.imagedriver.layer.masksToBounds = YES;
+    self.imagedriver.layer.cornerRadius = self.imagedriver.frame.size.height/2;
+
 }
 
 - (void)didReceiveMemoryWarning {

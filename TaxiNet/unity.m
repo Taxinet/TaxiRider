@@ -10,7 +10,7 @@
 
 #define URL_SIGNIN @"http://localhost:8080/TN/restServices/riderController/Login"
 #define UPDATE_URL @"http://localhost:8080/TN/restServices/riderController/UpdateRider"
-#define NEAR_TAXI_URL @"http://localhost:8080/TN/restServices/DriverController/getNearDriver"
+#define NEAR_TAXI_URL @"http://192.168.125.3:8080/TN/restServices/DriverController/getNearDriver"
 #define FIND_PROMOTION_TRIP_URL @"http://localhost:8080/TN/restServices/PromotionTripController/FindPromotionTip"
 
 
@@ -82,15 +82,18 @@
     
 }
 
-+(void)getNearTaxi:(NSString *)latitude andLongtitude:(NSString *)longtitude
++(void)getNearTaxi:(NSString *)latitude andLongtitude:(NSString *)longtitude owner:(HomeViewController *)owner
 {
+    UserInfo *model = [[UserInfo alloc] init];
     NSString *url = [NSString stringWithFormat:@"%@",NEAR_TAXI_URL];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *param = @{@"latitude":latitude,@"longitude":longtitude};
     [manager POST:url
        parameters:param
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              
+              model.neartaxi=(NSArray *)responseObject;
+              owner.nearTaxi=model.neartaxi;
+              [owner checkGetnearTaxi];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               

@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 #import "LoginViewController.h"
 #import "UserInfo.h"
+#import "HomeViewController.h"
+@class HomeViewController;
 @interface unity : NSObject
 
 +(void)login_by_email : (NSString*)email pass:(NSString *)pass owner:(LoginViewController*)owner;
@@ -20,8 +22,9 @@
                  lastName:(NSString*)lastName
                     email:(NSString*)email
                   phoneNo:(NSString*)phoneNo;
+
 +(void)getNearTaxi:(NSString*)latitude
-     andLongtitude:(NSString*)longtitude;
+     andLongtitude:(NSString*)longtitude owner:(HomeViewController *)owner;
 
 +(void)findPromotionTrips : (NSString*)formLatitude
           andfromLongitude: (NSString*)fromLongitude

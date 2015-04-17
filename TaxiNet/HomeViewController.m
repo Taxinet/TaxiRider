@@ -9,7 +9,6 @@
 #import "HomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "REFrostedViewController.h"
-
 @interface HomeViewController () {
     CLLocationCoordinate2D coordinateFrom;
     CLLocationCoordinate2D coordinateTo;
@@ -378,6 +377,7 @@
     [self.frostedViewController presentMenuViewController];
 }
 - (IBAction)findWay:(id)sender {
+// add anonator map from-to
     NSInteger toRemoveCount = mapview.annotations.count;
     NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
     for (id annotation in mapview.annotations)
@@ -386,6 +386,7 @@
     [mapview removeAnnotations:toRemove];
     NSString *longitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeFrom"];
     NSString *latitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeFrom"];
+    NSLog(@"location: long: %@ lati: %@",longitudeFrom,latitudeFrom);
     JPSThumbnail *annotation = [[JPSThumbnail alloc] init];
     annotation.coordinate = CLLocationCoordinate2DMake([latitudeFrom floatValue], [longitudeFrom floatValue]);
     annotation.image = [UIImage imageNamed:@"fromMap.png"];
@@ -397,8 +398,14 @@
     annotationTo.coordinate = CLLocationCoordinate2DMake([latitudeTo floatValue], [longitudeTo floatValue]);
     annotationTo.image = [UIImage imageNamed:@"toMap.png"];
     [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotationTo]];
-    [self.mapview addAnnotations:[self annotations]];
+
+// get near taxi
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [unity getNearTaxi:latitudeFrom andLongtitude:longitudeFrom owner:self];
+//        [self.mapview addAnnotations:[self annotations]];
+    });
     
+// find way
     [self.mapview removeOverlays:self.mapview.overlays];
     
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
@@ -419,7 +426,7 @@
             for (int i = 0; i < routeDetails.steps.count; i++) {
                 MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
                 NSString *newStep = step.instructions;
-                NSLog(@"Step:%@",newStep);
+//                NSLog(@"Step:%@",newStep);
             }
         }
     }];
@@ -435,7 +442,29 @@
     NSLog(@"distance: %4.0f m",distance);
     
 }
+-(void)checkGetnearTaxi
+{
+    for (id json in self.nearTaxi) {
+        NSLog(@"JSON:%@",json);
+        NSString *latitu=[json objectForKey:@"latitude"];
+        NSString *lontitu=[json objectForKey:@"longitude"];
+        JPSThumbnail *empire = [[JPSThumbnail alloc] init];
+        empire.image = [UIImage imageNamed:@"locatorTaxi.png"];
+        empire.coordinate = CLLocationCoordinate2DMake([latitu floatValue], [lontitu floatValue]);
+        empire.disclosureBlock =  ^{
+            DetailTaxi *detailTaxi = [[DetailTaxi alloc] initWithNibName:@"DetailTaxi" bundle:nil];
+            detailTaxi.vcParent = self;
+            [self presentPopupViewController:detailTaxi animated:YES completion:^(void) {
+                NSLog(@"popup view presented");
+            }];
+        };
+        [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:empire]];
 
+    }
+    
+
+    
+}
 - (IBAction)BookNow:(id)sender {
 }
 
@@ -485,27 +514,5 @@
     }
 }
 
-- (NSArray *)annotations {
-    
-    // Empire State Building
-    JPSThumbnail *empire = [[JPSThumbnail alloc] init];
-    empire.image = [UIImage imageNamed:@"locatorTaxi.png"];
-    empire.coordinate = CLLocationCoordinate2DMake(21.0016279f, 105.8049829f);
-    empire.disclosureBlock =  ^{
-    };
-    
-    JPSThumbnail *empire2 = [[JPSThumbnail alloc] init];
-    empire2.image = [UIImage imageNamed:@"locatorTaxi.png"];
-    empire2.coordinate = CLLocationCoordinate2DMake(21.0036279f, 105.8049829f);
-    empire2.disclosureBlock =  ^{
-        DetailTaxi *detailTaxi = [[DetailTaxi alloc] initWithNibName:@"DetailTaxi" bundle:nil];
-        detailTaxi.vcParent = self;
-        [self presentPopupViewController:detailTaxi animated:YES completion:^(void) {
-            NSLog(@"popup view presented");
-        }];
-    };
-    
-    return @[[JPSThumbnailAnnotation annotationWithThumbnail:empire],[JPSThumbnailAnnotation annotationWithThumbnail:empire2]];
-}
 
 @end

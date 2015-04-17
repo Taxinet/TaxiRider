@@ -10,5 +10,6 @@
 
 @interface UserInfo : NSObject
 @property (nonatomic,copy) NSDictionary *dataUser;
+@property (nonatomic,copy) NSArray *neartaxi;
 
 @end
