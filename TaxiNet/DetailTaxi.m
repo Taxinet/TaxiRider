@@ -34,4 +34,12 @@
 }
 */
 
+- (IBAction)Book:(id)sender {
+   
+}
+
+- (IBAction)cancel:(id)sender {
+    [self.vcParent dismissPopupViewControllerAnimated:YES completion:^{
+    }];
+}
 @end

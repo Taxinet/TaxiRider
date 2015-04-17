@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEu-rl-zPp">
-                                <rect key="frame" x="0.0" y="95" width="320" height="353"/>
+                                <rect key="frame" x="0.0" y="55" width="320" height="390"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xtt-u2-obl">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="353"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="390"/>
                                         <connections>
                                             <outlet property="delegate" destination="SRb-6o-AC9" id="fzu-vM-DMv"/>
                                         </connections>
                                     </mapView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mjm-Zk-AGT">
-                                        <rect key="frame" x="145" y="154" width="30" height="46"/>
+                                        <rect key="frame" x="142" y="172" width="36" height="46"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,55 +45,65 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-aW-Yy9">
-                                <rect key="frame" x="0.0" y="448" width="320" height="120"/>
+                                <rect key="frame" x="0.0" y="446" width="320" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ihz-mB-7aZ">
                                         <rect key="frame" x="0.0" y="40" width="320" height="40"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inputMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xna-pe-e12">
+                                                <rect key="frame" x="90" y="3" width="222" height="36"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdL-vj-JBk">
-                                                <rect key="frame" x="93" y="4" width="202" height="32"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="93" y="4" width="215" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="to.png" translatesAutoresizingMaskIntoConstraints="NO" id="hLs-DO-h7S">
-                                                <rect key="frame" x="8" y="1" width="66" height="37"/>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olb-wy-hHs">
+                                                <rect key="frame" x="39" y="4" width="36" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.85546795949999999" green="0.85428905200000005" blue="0.87488162879999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYA-9U-gh4">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inputMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="a5Q-LC-GMJ">
+                                                <rect key="frame" x="90" y="3" width="222" height="36"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-gS-rmF">
-                                                <rect key="frame" x="93" y="4" width="202" height="32"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="93" y="4" width="215" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="From.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-el-FNy">
-                                                <rect key="frame" x="8" y="1" width="66" height="37"/>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4R-Y2-4pj">
+                                                <rect key="frame" x="38" y="4" width="40" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.1687540471" green="0.59700758470000004" blue="0.69625946969999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-Pk-LAK">
-                                        <rect key="frame" x="137" y="88" width="72" height="31"/>
-                                        <state key="normal" title="Book Now">
+                                        <rect key="frame" x="190" y="82" width="120" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Find My Taxi" backgroundImage="btn_regis.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="BookNow:" destination="SRb-6o-AC9" eventType="touchUpInside" id="azy-Oz-Ksc"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="quang duong khoang 5km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNE-YZ-PBW">
-                                        <rect key="frame" x="8" y="78" width="312" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -106,10 +116,6 @@
                                     <action selector="findWay:" destination="SRb-6o-AC9" eventType="touchUpInside" id="rA6-tf-2zj"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufT-CU-KV9">
-                                <rect key="frame" x="0.0" y="51" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -119,7 +125,6 @@
                         <outlet property="mImageFocus" destination="Mjm-Zk-AGT" id="A7b-Yg-o3E"/>
                         <outlet property="mLocationFrom" destination="7YG-gS-rmF" id="VGE-QT-2HI"/>
                         <outlet property="mLocationTo" destination="YdL-vj-JBk" id="Lne-YE-4bE"/>
-                        <outlet property="mSearchBar" destination="ufT-CU-KV9" id="SQb-X6-mvi"/>
                         <outlet property="mapview" destination="Xtt-u2-obl" id="Yto-YO-S10"/>
                         <outlet property="searchDisplayController" destination="7OH-TE-BK7" id="96A-lK-s2A"/>
                         <outlet property="viewLocationFrom" destination="jYA-9U-gh4" id="DO2-oO-dgO"/>
@@ -696,12 +701,12 @@
         <image name="10487216_687099491374102_218448137921331276_n.jpg" width="800" height="509"/>
         <image name="BarButton.png" width="24" height="34"/>
         <image name="BarLogin.png" width="1080" height="152"/>
-        <image name="From.png" width="188" height="68"/>
         <image name="address.png" width="45" height="51"/>
+        <image name="btn_regis.png" width="691" height="147"/>
         <image name="iconlocation.png" width="46" height="46"/>
+        <image name="inputMap.png" width="470" height="76"/>
         <image name="pinMap.png" width="63" height="96"/>
         <image name="text_email.png" width="895" height="140"/>
-        <image name="to.png" width="160" height="78"/>
         <image name="user_register.png" width="895" height="138"/>
     </resources>
 </document>

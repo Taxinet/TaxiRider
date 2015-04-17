@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+CWPopup.h"
 
 @interface DetailTaxi : UIViewController
+- (IBAction)Book:(id)sender;
+
+- (IBAction)cancel:(id)sender;
+@property (nonatomic, retain) UIViewController *vcParent;
 
 @end

@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "JPSThumbnailAnnotation.h"
 #import "UIViewController+CWPopup.h"
+#import "DetailTaxi.h"
 
 @interface HomeViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate,UITextFieldDelegate,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
 - (IBAction)menu:(id)sender;
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mLocationFrom;
 @property (weak, nonatomic) IBOutlet UIView *viewLocationFrom;
 @property (weak, nonatomic) IBOutlet UIView *viewLocationTo;
+@property (nonatomic, assign) MKCoordinateRegion boundingRegion;
+
 - (IBAction)findWay:(id)sender;
 - (IBAction)BookNow:(id)sender;
 @property (weak, nonatomic) IBOutlet UISearchBar *mSearchBar;
