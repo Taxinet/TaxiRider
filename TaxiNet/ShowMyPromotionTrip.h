@@ -13,9 +13,13 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *backBtn;
 
+@property (strong, nonatomic) NSDictionary *promotionData;
+
 - (IBAction)backBtn:(id)sender;
 
 - (IBAction)findPromotion:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *nextToFindPro;
+@property (strong, nonatomic) IBOutlet UIView *bannerView;
 
 
 @end

@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *phoneNoLb;
 @property (strong, nonatomic) IBOutlet UILabel *passwordLb;
 
+@property (strong, nonatomic) IBOutlet UIView *bannerView;
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *riderAvatar;

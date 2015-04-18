@@ -10,6 +10,10 @@
 #import "AFNetworking.h"
 #import "LoginViewController.h"
 #import "UserInfo.h"
+#import "PromotionInfo.h"
+#import "AppDelegate.h"
+#import "ShowMyPromotionTrip.h"
+#import "FindPromotionTrip.h"
 @interface unity : NSObject
 
 +(void)login_by_email : (NSString*)email pass:(NSString *)pass owner:(LoginViewController*)owner;
@@ -23,10 +27,22 @@
 +(void)getNearTaxi:(NSString*)latitude
      andLongtitude:(NSString*)longtitude;
 
-+(void)findPromotionTrips : (NSString*)formLatitude
-          andfromLongitude: (NSString*)fromLongitude
-            withToLatitude: (NSString*)toLatitude
-            andToLongitude: (NSString*)toLongitude ;
++(void)findPromotionTrips : (double)formLatitude
+          andfromLongitude: (double)fromLongitude
+            withToLatitude: (double)toLatitude
+            andToLongitude: (double)toLongitude
+                     owner: (FindPromotionTrip*)owner;
++(void)registerPromotionTrip:(NSString*)promotionTripId
+                     riderId:(NSString*)riderId
+                    fromCity:(NSString*)fromCity
+                 fromAddress:(NSString*)fromAddress
+                      toCity:(NSString*)tocity
+                   toAddress:(NSString*)toAddress
+               numberOfSeats:(NSString*)number;
+
+
+
+
 
 
 @end

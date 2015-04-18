@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //search setup
     self.mSearchBar.delegate = self;
     arrDataSearched = [[NSMutableArray alloc] init];
     CGRect screenRect = [[UIScreen mainScreen] bounds];

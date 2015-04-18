@@ -19,4 +19,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *toLb;
 
 @property (strong, nonatomic) IBOutlet UILabel *fromLb;
+
+@property (strong, nonatomic) IBOutlet UIView *viewFrom;
+@property (strong, nonatomic) IBOutlet UIView *viewTo;
+@property (strong, nonatomic) IBOutlet UIView *viewNumber;
+@property (strong, nonatomic) IBOutlet UIView *viewPrice;
+@property (strong, nonatomic) IBOutlet UIView *viewDriver;
+@property (strong, nonatomic) IBOutlet UIView *labelView;
+
+
 @end

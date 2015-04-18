@@ -51,6 +51,9 @@ NSString *a6 = @"";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // set corlor
+    [self.bannerView setBackgroundColor:[UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1]];
+    
     //  get user's data
     NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
     

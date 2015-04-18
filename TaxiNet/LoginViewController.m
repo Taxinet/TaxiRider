@@ -28,6 +28,7 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.view addSubview:HUD];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"offLoginloading" object:nil];
+    
     appdelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
 
 }
@@ -49,40 +50,37 @@
 
 - (IBAction)Login:(id)sender {
     
-//    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
-//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-//                                                         message:NSLocalizedString(@"please input username",nil)
-//                                                        delegate:self
-//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-//                                               otherButtonTitles:nil, nil];
-//        [alertTmp show];
-//    }
-//    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
-//    {
-//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-//                                                         message:NSLocalizedString(@"please input Password",nil)
-//                                                        delegate:self
-//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-//                                               otherButtonTitles:nil, nil];
-//        [alertTmp show];
-//    }
-//    else
-//    {
-//        [HUD show:YES];
-//        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
-//    }
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
-    HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
+    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input username",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
+    {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input Password",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else
+    {
+        [HUD show:YES];
+        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
+    }
+
 }
 -(void)checkLogin
 {
-    UserInfo *userInfor;
-    _dataUser = userInfor.dataUser;
-    NSLog(@"Store Data: %@",_dataUser);
-    NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
-    appdelegate.yoursefl=(NSMutableDictionary*)self.dataUser;
 
+    NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
+    // set data to NSDictionary
+    appdelegate.yoursefl=(NSMutableDictionary*)self.dataUser;
+    NSLog(@"data9999:%@",[appdelegate.yoursefl objectForKey:@"email"]);
     // save data login
     //NSString *passLog = @"******";
     [loginInfo setObject:self.emailLogin.text forKey:@"username"];
@@ -107,9 +105,7 @@
     //    [loginInfo setObject:[self.dataUser objectForKey:@"type"] forKey:@"type"];
     
     
-    NSLog(@"Test login data: %@",[self.dataUser objectForKey:@"email"]);
     NSLog(@"Test login data: %@",self.dataUser);
-    NSLog(@"data: %@",self.dataUser);
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
     HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
     [self.navigationController pushViewController:controller animated:YES];
