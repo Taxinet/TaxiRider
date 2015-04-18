@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "ShowMyPromotionTrip.h"
 #import "FindPromotionTrip.h"
+#import "HomeViewController.h"
+@class HomeViewController;
 @interface unity : NSObject
 
 +(void)login_by_email : (NSString*)email pass:(NSString *)pass owner:(LoginViewController*)owner;
@@ -24,8 +26,9 @@
                  lastName:(NSString*)lastName
                     email:(NSString*)email
                   phoneNo:(NSString*)phoneNo;
+
 +(void)getNearTaxi:(NSString*)latitude
-     andLongtitude:(NSString*)longtitude;
+     andLongtitude:(NSString*)longtitude owner:(HomeViewController *)owner;
 
 +(void)findPromotionTrips : (double)formLatitude
           andfromLongitude: (double)fromLongitude

@@ -12,8 +12,8 @@
 
 NSString * const kJPSThumbnailAnnotationViewReuseID = @"JPSThumbnailAnnotationView";
 
-static CGFloat const kJPSThumbnailAnnotationViewStandardWidth     = 25.0f;
-static CGFloat const kJPSThumbnailAnnotationViewStandardHeight    = 40.0f;
+static CGFloat const kJPSThumbnailAnnotationViewStandardWidth     = 36.0f;
+static CGFloat const kJPSThumbnailAnnotationViewStandardHeight    = 46.0f;
 static CGFloat const kJPSThumbnailAnnotationViewExpandOffset      = 200.0f;
 static CGFloat const kJPSThumbnailAnnotationViewVerticalOffset    = 34.0f;
 static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
@@ -33,7 +33,9 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
 @end
 
 @implementation JPSThumbnailAnnotationView
-
+{
+    UIButton *button;
+}
 #pragma mark - Setup
 
 - (id)initWithAnnotation:(id<MKAnnotation>)annotation {
@@ -43,7 +45,7 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
         self.canShowCallout = NO;
         self.frame = CGRectMake(0, 0, kJPSThumbnailAnnotationViewStandardWidth, kJPSThumbnailAnnotationViewStandardHeight);
         self.backgroundColor = [UIColor clearColor];
-        self.centerOffset = CGPointMake(0, -kJPSThumbnailAnnotationViewVerticalOffset);
+        self.centerOffset = CGPointMake(0, -kJPSThumbnailAnnotationViewVerticalOffset+10);
         
         _state = JPSThumbnailAnnotationViewStateCollapsed;
         
@@ -60,12 +62,12 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
 }
 
 - (void)setupImageView {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self
                action:@selector(didTapDisclosureButton)
      forControlEvents:UIControlEventTouchUpInside];
     [button setImage:[UIImage imageNamed:@"pinMap.png"] forState:UIControlStateNormal];
-    button.frame = CGRectMake(0.5f, 0.5f, 25.0f, 40.0f);
+    button.frame = CGRectMake(0.0f, 0.0f, 36.0f, 46.0f);
     [self addSubview:button];
 }
 
@@ -94,6 +96,7 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     self.titleLabel.text = thumbnail.title;
     self.subtitleLabel.text = thumbnail.subtitle;
     self.imageView.image = thumbnail.image;
+    [button setImage:thumbnail.image forState:UIControlStateNormal];
     self.disclosureBlock = thumbnail.disclosureBlock;
 }
 

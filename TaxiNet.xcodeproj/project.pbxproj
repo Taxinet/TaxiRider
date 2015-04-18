@@ -61,6 +61,16 @@
 		774319031AAC41AD001CF128 /* pinMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 774319021AAC41AD001CF128 /* pinMap.png */; };
 		774319051AAC41DD001CF128 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774319041AAC41DD001CF128 /* MapKit.framework */; };
 		774319071AAC41E8001CF128 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774319061AAC41E8001CF128 /* CoreLocation.framework */; };
+		775B5F651ADE33EB00765F4F /* locatorTaxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F641ADE33EB00765F4F /* locatorTaxi.png */; };
+		775B5F681ADEDA3C00765F4F /* fromMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F661ADEDA3C00765F4F /* fromMap.png */; };
+		775B5F691ADEDA3C00765F4F /* toMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F671ADEDA3C00765F4F /* toMap.png */; };
+		775B5F6C1ADEDE2F00765F4F /* inputMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F6A1ADEDE2F00765F4F /* inputMap.png */; };
+		775B5F6D1ADEDE2F00765F4F /* inputmap2.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F6B1ADEDE2F00765F4F /* inputmap2.png */; };
+		775B5F701ADEE00E00765F4F /* mapfrom.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F6E1ADEE00E00765F4F /* mapfrom.png */; };
+		775B5F711ADEE00E00765F4F /* mapto.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F6F1ADEE00E00765F4F /* mapto.png */; };
+		775B5F741AE02A6100765F4F /* setting_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F721AE02A6100765F4F /* setting_bg.png */; };
+		775B5F751AE02A6100765F4F /* setting_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F731AE02A6100765F4F /* setting_button.png */; };
+		775B5F771AE02BF100765F4F /* button_find.png in Resources */ = {isa = PBXBuildFile; fileRef = 775B5F761AE02BF100765F4F /* button_find.png */; };
 		776090AD1AAD722400C21D94 /* BarLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 776090AC1AAD722400C21D94 /* BarLogin.png */; };
 		776090AF1AAD728F00C21D94 /* BarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 776090AE1AAD728F00C21D94 /* BarButton.png */; };
 		776090B11AAD81D000C21D94 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 776090B01AAD81D000C21D94 /* QuartzCore.framework */; };
@@ -206,6 +216,16 @@
 		774319021AAC41AD001CF128 /* pinMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinMap.png; sourceTree = "<group>"; };
 		774319041AAC41DD001CF128 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		774319061AAC41E8001CF128 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		775B5F641ADE33EB00765F4F /* locatorTaxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locatorTaxi.png; sourceTree = "<group>"; };
+		775B5F661ADEDA3C00765F4F /* fromMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fromMap.png; sourceTree = "<group>"; };
+		775B5F671ADEDA3C00765F4F /* toMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toMap.png; sourceTree = "<group>"; };
+		775B5F6A1ADEDE2F00765F4F /* inputMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputMap.png; sourceTree = "<group>"; };
+		775B5F6B1ADEDE2F00765F4F /* inputmap2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputmap2.png; sourceTree = "<group>"; };
+		775B5F6E1ADEE00E00765F4F /* mapfrom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapfrom.png; sourceTree = "<group>"; };
+		775B5F6F1ADEE00E00765F4F /* mapto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapto.png; sourceTree = "<group>"; };
+		775B5F721AE02A6100765F4F /* setting_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_bg.png; sourceTree = "<group>"; };
+		775B5F731AE02A6100765F4F /* setting_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_button.png; sourceTree = "<group>"; };
+		775B5F761AE02BF100765F4F /* button_find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_find.png; sourceTree = "<group>"; };
 		776090AC1AAD722400C21D94 /* BarLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarLogin.png; sourceTree = "<group>"; };
 		776090AE1AAD728F00C21D94 /* BarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButton.png; sourceTree = "<group>"; };
 		776090B01AAD81D000C21D94 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -457,6 +477,16 @@
 				8F1CA02A1ADEC95400FD7405 /* calendar.PNG */,
 				8F1CA02B1ADEC95400FD7405 /* infouser.PNG */,
 				8F1CA02C1ADEC95400FD7405 /* location.PNG */,
+				775B5F761AE02BF100765F4F /* button_find.png */,
+				775B5F721AE02A6100765F4F /* setting_bg.png */,
+				775B5F731AE02A6100765F4F /* setting_button.png */,
+				775B5F6E1ADEE00E00765F4F /* mapfrom.png */,
+				775B5F6F1ADEE00E00765F4F /* mapto.png */,
+				775B5F6A1ADEDE2F00765F4F /* inputMap.png */,
+				775B5F6B1ADEDE2F00765F4F /* inputmap2.png */,
+				775B5F661ADEDA3C00765F4F /* fromMap.png */,
+				775B5F671ADEDA3C00765F4F /* toMap.png */,
+				775B5F641ADE33EB00765F4F /* locatorTaxi.png */,
 				8F3DC4801AD98F27009A2FEF /* icon */,
 				8F025F2E1ADC28DB0044087F /* yourlogohere.png */,
 				7772F4431AD7CFCD00467247 /* From.png */,
@@ -682,6 +712,7 @@
 					};
 					774318B61AA73DBA001CF128 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CM69L5FQSQ;
 						TestTargetID = 7743189A1AA73DB9001CF128;
 					};
 				};
@@ -714,16 +745,23 @@
 				8F1CA0281ADEB86400FD7405 /* iconlocation.png in Resources */,
 				774318DC1AA74DAE001CF128 /* text_email.png in Resources */,
 				8F1CA0301ADEC95500FD7405 /* location.PNG in Resources */,
+
+				775B5F711ADEE00E00765F4F /* mapto.png in Resources */,
 				774318ED1AA96029001CF128 /* checkBox.png in Resources */,
 				774318AD1AA73DBA001CF128 /* Main.storyboard in Resources */,
 				8F025F2F1ADC28DB0044087F /* yourlogohere.png in Resources */,
+				775B5F651ADE33EB00765F4F /* locatorTaxi.png in Resources */,
 				774318CE1AA7465A001CF128 /* btn_login.png in Resources */,
+				775B5F771AE02BF100765F4F /* button_find.png in Resources */,
+				775B5F691ADEDA3C00765F4F /* toMap.png in Resources */,
 				7772F4461AD7CFCD00467247 /* to.png in Resources */,
 				774318E51AA75604001CF128 /* backgro_login.png in Resources */,
 				776090AD1AAD722400C21D94 /* BarLogin.png in Resources */,
 				8F1CA02F1ADEC95500FD7405 /* infouser.PNG in Resources */,
 				774318EE1AA96029001CF128 /* user_register.png in Resources */,
 				8F025F311ADC294A0044087F /* CustomPromotionCell.xib in Resources */,
+				775B5F6C1ADEDE2F00765F4F /* inputMap.png in Resources */,
+				775B5F751AE02A6100765F4F /* setting_button.png in Resources */,
 				7772F4451AD7CFCD00467247 /* From.png in Resources */,
 				774318EC1AA96029001CF128 /* checkbox_non.png in Resources */,
 				774318D01AA7465A001CF128 /* splast.png in Resources */,
@@ -732,12 +770,16 @@
 				774318D41AA74794001CF128 /* AppLogin.storyboard in Resources */,
 				774318DD1AA74DAE001CF128 /* text_pass.png in Resources */,
 				774318F01AA961C4001CF128 /* Back.png in Resources */,
+				775B5F701ADEE00E00765F4F /* mapfrom.png in Resources */,
 				8F9D13B81ADD5FDC00EE8AB4 /* star.png in Resources */,
 				774183421AC9CCFE00ABC5E6 /* DetailTaxi.xib in Resources */,
 				776090D91AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg in Resources */,
+				775B5F6D1ADEDE2F00765F4F /* inputmap2.png in Resources */,
 				774318B21AA73DBA001CF128 /* LaunchScreen.xib in Resources */,
 				774318F31AA9636A001CF128 /* HomeView.storyboard in Resources */,
 				8F025F3C1ADC3EC50044087F /* CustomMyPromotion.xib in Resources */,
+				775B5F741AE02A6100765F4F /* setting_bg.png in Resources */,
+				775B5F681ADEDA3C00765F4F /* fromMap.png in Resources */,
 				774319031AAC41AD001CF128 /* pinMap.png in Resources */,
 				776090AF1AAD728F00C21D94 /* BarButton.png in Resources */,
 				8F1CA02D1ADEC95500FD7405 /* book.PNG in Resources */,
@@ -951,7 +993,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "bf8692f2-e645-4755-8f70-219efab18358";
+				PROVISIONING_PROFILE = "df55ed76-42d6-4aef-b107-ca6eea3c7859";
 			};
 			name = Debug;
 		};
@@ -970,7 +1012,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "df55ed76-42d6-4aef-b107-ca6eea3c7859";
 			};
 			name = Release;
 		};
@@ -978,6 +1020,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -989,6 +1033,7 @@
 				INFOPLIST_FILE = TaxiNetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = taxinet.temp_caseinsensitive_renameTests;
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaxiNet.app/TaxiNet";
 			};
 			name = Debug;
@@ -997,6 +1042,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1004,6 +1051,7 @@
 				INFOPLIST_FILE = TaxiNetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = taxinet.temp_caseinsensitive_renameTests;
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaxiNet.app/TaxiNet";
 			};
 			name = Release;

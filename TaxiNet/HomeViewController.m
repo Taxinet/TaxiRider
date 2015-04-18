@@ -9,7 +9,6 @@
 #import "HomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "REFrostedViewController.h"
-
 @interface HomeViewController () {
     CLLocationCoordinate2D coordinateFrom;
     CLLocationCoordinate2D coordinateTo;
@@ -19,7 +18,8 @@
     MKRoute *routeDetails;
     UITableView *mTableViewSuggest;
     NSMutableArray *arrDataSearched;
-    
+    NSInteger selectTo;
+    BOOL fromselect;
 }
 
 
@@ -35,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //search setup
+    fromselect=FALSE;
     self.mSearchBar.delegate = self;
     arrDataSearched = [[NSMutableArray alloc] init];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -51,10 +52,11 @@
     //set anchor point focus point
     mImageFocus.layer.anchorPoint = CGPointMake(0.5, 1.0);
     mapview.delegate = self;
-
+    
     
     // Map View
-//    [self.mapview addAnnotations:[self annotations]];
+    //[self.mapview addAnnotations:[self annotations]];
+    mImageFocus.hidden=YES;
     [self performSelector:@selector(zoomInToMyLocation)
                withObject:nil
                afterDelay:1];
@@ -69,40 +71,21 @@
     
     [self selectLocationFrom:gestureFrom];
     [self.viewLocationFrom setBackgroundColor:[UIColor colorWithRed:84.0f/255.0f
-                                                             green:142.0f/255.0f
-                                                              blue:209.0f/255.0f
-                                                             alpha:1.0f]];
-    
-    [self.viewLocationTo setBackgroundColor:[UIColor colorWithRed:84.0f/255.0f
                                                               green:142.0f/255.0f
                                                                blue:209.0f/255.0f
                                                               alpha:1.0f]];
     
-//    [UIView animateWithDuration:.7
-//                     animations:^{
-//                         //what you would like to animate
-//                         
-//                     }completion:^(BOOL finished){
-//                         //do something when the animation finishes
-//                     }];
-//    MKCoordinateRegion region = _destinationRegion;
-//    MKMapRect rect = MKMapRectForCoordinateRegion(_destinationRegion);
-//    MKMapRect intersection = MKMapRectIntersection(rect, _mapView.visibleMapRect);
-//    if (MKMapRectIsNull(intersection)) {
-//        rect = MKMapRectUnion(rect, _mapView.visibleMapRect);
-//        region = MKCoordinateRegionForMapRect(rect);
-//        _intermediateAnimation = YES;
-//    }
-//    [_mapView setRegion:region animated:YES];
+    [self.viewLocationTo setBackgroundColor:[UIColor colorWithRed:84.0f/255.0f
+                                                            green:142.0f/255.0f
+                                                             blue:209.0f/255.0f
+                                                            alpha:1.0f]];
+    [self.ViewDetail setBackgroundColor:[UIColor colorWithRed:84.0f/255.0f
+                                                            green:142.0f/255.0f
+                                                             blue:209.0f/255.0f
+                                                            alpha:1.0f]];
+    selectTo=0;
+    
 }
-
-//-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-//{
-//    if (_intermediateAnimation) {
-//        _intermediateAnimation = NO;
-//        [_mapView setRegion:_destinationRegion animated:YES];
-//    }
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [arrDataSearched count];;
@@ -126,7 +109,18 @@
     
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MKMapItem *mapItem = [arrDataSearched objectAtIndex:indexPath.row];
+    NSLog(@"location:%@",[arrDataSearched objectAtIndex:indexPath.row]);
+    [self.mapview setRegion:self.boundingRegion];
+    JPSThumbnail *annotation = [[JPSThumbnail alloc] init];
+    annotation.coordinate = mapItem.placemark.location.coordinate;
+    annotation.image = [UIImage imageNamed:@"pinMap.png"];
+    [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotation]];
+    
+    
+}
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     [searchBar resignFirstResponder];
@@ -151,10 +145,7 @@
     [mTableViewSuggest.layer addAnimation:animation forKey:nil];
     [mTableViewSuggest setHidden:YES];
     [arrDataSearched removeAllObjects];
-//    CGRect bounds = mTableViewSuggest.frame;
-//    bounds.size.height=[arrDataSearched count]*20;
-//    mTableViewSuggest.frame=bounds;
-
+    
     [mTableViewSuggest reloadData];
     
     searchBar.text = @"";
@@ -179,10 +170,12 @@
         {
             [arrDataSearched addObjectsFromArray:[response mapItems]];
             CGRect bounds = [mTableViewSuggest bounds];
-//            [mTableViewSuggest setBounds:CGRectMake(bounds.origin.x,
-//                                            self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height,
-//                                            bounds.size.width,
-//                                           [arrDataSearched count]* 30)];
+            self.boundingRegion = response.boundingRegion;
+            
+            //            [mTableViewSuggest setBounds:CGRectMake(bounds.origin.x,
+            //                                            self.mSearchBar.frame.origin.y + self.mSearchBar.frame.size.height,
+            //                                            bounds.size.width,
+            //                                           [arrDataSearched count]* 30)];
             [mTableViewSuggest reloadData];
         }
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -199,19 +192,74 @@
 }
 
 - (void)selectLocationFrom:(UITapGestureRecognizer *)recognizer {
-//    [viewLocationFrom setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
-//    [viewLocationTo setBackgroundColor:[UIColor whiteColor]];
-//    [mLocationFrom setTextColor:[UIColor whiteColor]];
-//    [mLocationTo setTextColor:[UIColor blackColor]];
-    locationTabPosition = 0;
+    [mImageFocus setImage:[UIImage imageNamed:@"fromMap.png"]];
+
+    if (fromselect==TRUE) {
+        NSString *longitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeFrom"];
+        NSString *latitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeFrom"];
+        MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
+        region.center.latitude = [latitudeFrom floatValue] ;
+        region.center.longitude = [longitudeFrom floatValue];
+        region.span.longitudeDelta = 0.05f;
+        region.span.latitudeDelta = 0.05f;
+        [self.mapview setRegion:region animated:YES];
+        locationTabPosition = 0;
+        
+        NSInteger toRemoveCount = mapview.annotations.count;
+        NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
+        for (id annotation in mapview.annotations)
+            if (annotation != mapview.userLocation)
+                [toRemove addObject:annotation];
+        [mapview removeAnnotations:toRemove];
+        JPSThumbnail *annotation = [[JPSThumbnail alloc] init];
+        annotation.coordinate = CLLocationCoordinate2DMake([latitudeFrom floatValue], [longitudeFrom floatValue]);
+        annotation.image = [UIImage imageNamed:@"fromMap.png"];
+        
+        [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotation]];
+        
+        
+        NSString *longitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeTo"];
+        NSString *latitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeTo"];
+        JPSThumbnail *annotationTo = [[JPSThumbnail alloc] init];
+        annotationTo.coordinate = CLLocationCoordinate2DMake([latitudeTo floatValue], [longitudeTo floatValue]);
+        annotationTo.image = [UIImage imageNamed:@"toMap.png"];
+        [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotationTo]];
+    }
+
 }
 
 - (void)selectLocationTo:(UITapGestureRecognizer *)recognizer {
-//    [viewLocationTo setBackgroundColor:[UIColor colorWithRed:255/255.0f green:59/255.0f blue:0/255.0f alpha:1.0f]];
-//    [viewLocationFrom setBackgroundColor:[UIColor whiteColor]];
-//    [mLocationTo setTextColor:[UIColor whiteColor]];
-//    [mLocationFrom setTextColor:[UIColor blackColor]];
+    [mImageFocus setImage:[UIImage imageNamed:@"toMap.png"]];
+    fromselect=TRUE;
+
+    NSString *longitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeTo"];
+    NSString *latitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeTo"];
+    MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
+    region.center.latitude = [latitudeTo floatValue] ;
+    region.center.longitude = [longitudeTo floatValue];
+    region.span.longitudeDelta = 0.05f;
+    region.span.latitudeDelta = 0.05f;
+    [self.mapview setRegion:region animated:YES];
     locationTabPosition = 1;
+    
+    NSInteger toRemoveCount = mapview.annotations.count;
+    NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
+    for (id annotation in mapview.annotations)
+        if (annotation != mapview.userLocation)
+            [toRemove addObject:annotation];
+    [mapview removeAnnotations:toRemove];
+    JPSThumbnail *annotationTo = [[JPSThumbnail alloc] init];
+    annotationTo.coordinate = CLLocationCoordinate2DMake([latitudeTo floatValue], [longitudeTo floatValue]);
+    annotationTo.image = [UIImage imageNamed:@"toMap.png"];
+    [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotationTo]];
+    
+    
+    NSString *longitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeFrom"];
+    NSString *latitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeFrom"];
+    JPSThumbnail *annotation = [[JPSThumbnail alloc] init];
+    annotation.coordinate = CLLocationCoordinate2DMake([latitudeFrom floatValue], [longitudeFrom floatValue]);
+    annotation.image = [UIImage imageNamed:@"fromMap.png"];
+    [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotation]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -231,12 +279,12 @@
 - (void) getReverseGeocode:(CLLocationCoordinate2D) coordinate
 {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    
     CLLocationCoordinate2D myCoOrdinate;
     
     myCoOrdinate.latitude = coordinate.latitude;
     myCoOrdinate.longitude = coordinate.longitude;
-    
+    NSString *lotu = [NSString stringWithFormat:@"%.8f", coordinate.longitude];
+    NSString *lati = [NSString stringWithFormat:@"%.8f", coordinate.latitude];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:myCoOrdinate.latitude longitude:myCoOrdinate.longitude];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
      {
@@ -271,12 +319,17 @@
                      mLocationFrom.text=[address substringToIndex:[address length] - 27];
                  }
                  placeFrom = [[MKPlacemark alloc] initWithCoordinate:myCoOrdinate addressDictionary:placemark.addressDictionary];
+                 [[NSUserDefaults standardUserDefaults] setObject:lotu forKey:@"longitudeFrom"];
+                 [[NSUserDefaults standardUserDefaults] setObject:lati forKey:@"latitudeFrom"];
+                 
              } else {
                  mLocationTo.text = address;
                  if ([address length]>30) {
                      mLocationTo.text=[address substringToIndex:[address length] - 27];
                  }
                  placeTo = [[MKPlacemark alloc] initWithCoordinate:myCoOrdinate addressDictionary:placemark.addressDictionary];
+                 [[NSUserDefaults standardUserDefaults] setObject:lotu forKey:@"longitudeTo"];
+                 [[NSUserDefaults standardUserDefaults] setObject:lati forKey:@"latitudeTo"];
              }
              
              
@@ -308,7 +361,10 @@
     region.center.longitude = 105.80524481;
     region.span.longitudeDelta = 0.05f;
     region.span.latitudeDelta = 0.05f;
+    [[NSUserDefaults standardUserDefaults] setObject:@"105.80524481" forKey:@"longitudeTo"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"21.0018385" forKey:@"latitudeTo"];
     [self.mapview setRegion:region animated:YES];
+    mImageFocus.hidden=NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -322,7 +378,35 @@
     [self.frostedViewController presentMenuViewController];
 }
 - (IBAction)findWay:(id)sender {
+// add anonator map from-to
+    NSInteger toRemoveCount = mapview.annotations.count;
+    NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
+    for (id annotation in mapview.annotations)
+        if (annotation != mapview.userLocation)
+            [toRemove addObject:annotation];
+    [mapview removeAnnotations:toRemove];
+    NSString *longitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeFrom"];
+    NSString *latitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeFrom"];
+    NSLog(@"location: long: %@ lati: %@",longitudeFrom,latitudeFrom);
+    JPSThumbnail *annotation = [[JPSThumbnail alloc] init];
+    annotation.coordinate = CLLocationCoordinate2DMake([latitudeFrom floatValue], [longitudeFrom floatValue]);
+    annotation.image = [UIImage imageNamed:@"fromMap.png"];
+    [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotation]];
     
+    NSString *longitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeTo"];
+    NSString *latitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeTo"];
+    JPSThumbnail *annotationTo = [[JPSThumbnail alloc] init];
+    annotationTo.coordinate = CLLocationCoordinate2DMake([latitudeTo floatValue], [longitudeTo floatValue]);
+    annotationTo.image = [UIImage imageNamed:@"toMap.png"];
+    [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotationTo]];
+
+// get near taxi
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [unity getNearTaxi:latitudeFrom andLongtitude:longitudeFrom owner:self];
+//        [self.mapview addAnnotations:[self annotations]];
+    });
+    
+// find way
     [self.mapview removeOverlays:self.mapview.overlays];
     
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
@@ -343,13 +427,45 @@
             for (int i = 0; i < routeDetails.steps.count; i++) {
                 MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
                 NSString *newStep = step.instructions;
-                NSLog(@"Step:%@",newStep);
+//                NSLog(@"Step:%@",newStep);
             }
         }
     }];
+    CLLocation *pinLocation = [[CLLocation alloc]
+                               initWithLatitude:placeFrom.coordinate.latitude
+                               longitude:placeFrom.coordinate.longitude];
+    
+    CLLocation *userLocation = [[CLLocation alloc]
+                                initWithLatitude:placeTo.coordinate.latitude
+                                longitude:placeTo.coordinate.longitude];
+    
+    CLLocationDistance distance = [pinLocation distanceFromLocation:userLocation];
+    NSLog(@"distance: %4.0f m",distance);
     
 }
+-(void)checkGetnearTaxi
+{
+    for (id json in self.nearTaxi) {
+        NSLog(@"JSON:%@",json);
+        NSString *latitu=[json objectForKey:@"latitude"];
+        NSString *lontitu=[json objectForKey:@"longitude"];
+        JPSThumbnail *empire = [[JPSThumbnail alloc] init];
+        empire.image = [UIImage imageNamed:@"locatorTaxi.png"];
+        empire.coordinate = CLLocationCoordinate2DMake([latitu floatValue], [lontitu floatValue]);
+        empire.disclosureBlock =  ^{
+            DetailTaxi *detailTaxi = [[DetailTaxi alloc] initWithNibName:@"DetailTaxi" bundle:nil];
+            detailTaxi.vcParent = self;
+            [self presentPopupViewController:detailTaxi animated:YES completion:^(void) {
+                NSLog(@"popup view presented");
+            }];
+        };
+        [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:empire]];
 
+    }
+    
+
+    
+}
 - (IBAction)BookNow:(id)sender {
 }
 
@@ -361,7 +477,7 @@
         return [((NSObject<JPSThumbnailAnnotationProtocol> *)annotation) annotationViewInMap:mapView];
     }
     return nil;
-
+    
     // Handle any custom annotations.
     if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
         // Try to dequeue an existing pin view first.
@@ -395,48 +511,9 @@
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
     if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {
         [((NSObject<JPSThumbnailAnnotationViewProtocol> *)view) didDeselectAnnotationViewInMap:mapView];
-
+        
     }
 }
 
-- (NSArray *)annotations {
-
-    // Empire State Building
-    JPSThumbnail *empire = [[JPSThumbnail alloc] init];
-    empire.image = [UIImage imageNamed:@"pinMap.png"];
-    empire.coordinate = CLLocationCoordinate2DMake(21.0016279f, 105.8049829f);
-    empire.disclosureBlock =  ^{
-        [UIView animateWithDuration:1
-                              delay:0
-                            options: UIViewAnimationCurveEaseOut
-                         animations:^{
-                             CGRect f = self.ViewDetail.frame;
-                             f.origin.y = 368; // new y
-                             self.ViewDetail.frame = f;
-                         }
-                         completion:^(BOOL finished){
-                             NSLog(@"Done!");
-                         }];
-    };
-
-    JPSThumbnail *empire2 = [[JPSThumbnail alloc] init];
-    empire2.image = [UIImage imageNamed:@"pinMap.png"];
-    empire2.coordinate = CLLocationCoordinate2DMake(21.0036279f, 105.8049829f);
-    empire2.disclosureBlock =  ^{
-        [UIView animateWithDuration:1
-                              delay:0
-                            options: UIViewAnimationCurveEaseOut
-                         animations:^{
-                             CGRect f = self.ViewDetail.frame;
-                             f.origin.y = 368; // new y
-                             self.ViewDetail.frame = f;
-                         }
-                         completion:^(BOOL finished){
-                             NSLog(@"Done!");
-                         }];
-    };
-
-    return @[[JPSThumbnailAnnotation annotationWithThumbnail:empire],[JPSThumbnailAnnotation annotationWithThumbnail:empire2]];
-}
 
 @end
