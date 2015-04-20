@@ -25,7 +25,6 @@
 @property (nonatomic, assign) MKCoordinateRegion boundingRegion;
 @property (nonatomic,strong) NSArray *nearTaxi;
 
-- (IBAction)findWay:(id)sender;
 - (IBAction)BookNow:(id)sender;
 -(void)checkGetnearTaxi;
 @property (weak, nonatomic) IBOutlet UISearchBar *mSearchBar;

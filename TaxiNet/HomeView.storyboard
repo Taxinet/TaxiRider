@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -70,6 +70,9 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.85546795949999999" green="0.85428905200000005" blue="0.87488162879999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="toMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="cLU-ud-DCX">
+                                        <rect key="frame" x="12" y="43" width="22" height="30"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYA-9U-gh4">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <subviews>
@@ -90,6 +93,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fromMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-10-b1P">
+                                                <rect key="frame" x="12" y="5" width="22" height="30"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1687540471" green="0.59700758470000004" blue="0.69625946969999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -107,15 +113,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8B-z3-e0v">
-                                <rect key="frame" x="258" y="24" width="46" height="30"/>
-                                <state key="normal" title="Find">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="findWay:" destination="SRb-6o-AC9" eventType="touchUpInside" id="rA6-tf-2zj"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -703,10 +700,12 @@
         <image name="BarLogin.png" width="1080" height="152"/>
         <image name="address.png" width="45" height="51"/>
         <image name="btn_regis.png" width="691" height="147"/>
+        <image name="fromMap.png" width="128" height="128"/>
         <image name="iconlocation.png" width="46" height="46"/>
         <image name="inputMap.png" width="470" height="76"/>
         <image name="pinMap.png" width="63" height="96"/>
         <image name="text_email.png" width="895" height="140"/>
+        <image name="toMap.png" width="128" height="128"/>
         <image name="user_register.png" width="895" height="138"/>
     </resources>
 </document>

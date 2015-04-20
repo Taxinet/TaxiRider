@@ -90,6 +90,7 @@
 		776090D91AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 776090D81AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg */; };
 		7772F4451AD7CFCD00467247 /* From.png in Resources */ = {isa = PBXBuildFile; fileRef = 7772F4431AD7CFCD00467247 /* From.png */; };
 		7772F4461AD7CFCD00467247 /* to.png in Resources */ = {isa = PBXBuildFile; fileRef = 7772F4441AD7CFCD00467247 /* to.png */; };
+		77DE944B1AE3EDA20049B2E8 /* call_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DE944A1AE3EDA20049B2E8 /* call_btn.png */; };
 		8F025F291ADBF1740044087F /* CreatePromotionTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F025F281ADBF1740044087F /* CreatePromotionTrip.m */; };
 		8F025F2D1ADBF9380044087F /* ShowPromotionTrips.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F025F2C1ADBF9380044087F /* ShowPromotionTrips.m */; };
 		8F025F2F1ADC28DB0044087F /* yourlogohere.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F025F2E1ADC28DB0044087F /* yourlogohere.png */; };
@@ -246,6 +247,7 @@
 		776090D81AADDA4F00C21D94 /* 10487216_687099491374102_218448137921331276_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10487216_687099491374102_218448137921331276_n.jpg; sourceTree = "<group>"; };
 		7772F4431AD7CFCD00467247 /* From.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = From.png; sourceTree = "<group>"; };
 		7772F4441AD7CFCD00467247 /* to.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = to.png; sourceTree = "<group>"; };
+		77DE944A1AE3EDA20049B2E8 /* call_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call_btn.png; sourceTree = "<group>"; };
 		8F025F271ADBF1740044087F /* CreatePromotionTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePromotionTrip.h; sourceTree = "<group>"; };
 		8F025F281ADBF1740044087F /* CreatePromotionTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePromotionTrip.m; sourceTree = "<group>"; };
 		8F025F2B1ADBF9380044087F /* ShowPromotionTrips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPromotionTrips.h; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 		774318C81AA74568001CF128 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				77DE944A1AE3EDA20049B2E8 /* call_btn.png */,
 				775B5F761AE02BF100765F4F /* button_find.png */,
 				775B5F721AE02A6100765F4F /* setting_bg.png */,
 				775B5F731AE02A6100765F4F /* setting_button.png */,
@@ -715,6 +718,7 @@
 				774318AD1AA73DBA001CF128 /* Main.storyboard in Resources */,
 				8F025F2F1ADC28DB0044087F /* yourlogohere.png in Resources */,
 				775B5F651ADE33EB00765F4F /* locatorTaxi.png in Resources */,
+				77DE944B1AE3EDA20049B2E8 /* call_btn.png in Resources */,
 				774318CE1AA7465A001CF128 /* btn_login.png in Resources */,
 				775B5F771AE02BF100765F4F /* button_find.png in Resources */,
 				775B5F691ADEDA3C00765F4F /* toMap.png in Resources */,

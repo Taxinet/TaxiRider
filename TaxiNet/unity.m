@@ -10,8 +10,9 @@
 
 #define URL_SIGNIN @"http://localhost:8080/TN/restServices/riderController/Login"
 #define UPDATE_URL @"http://localhost:8080/TN/restServices/riderController/UpdateRider"
-#define NEAR_TAXI_URL @"http://192.168.125.3:8080/TN/restServices/DriverController/getNearDriver"
+#define NEAR_TAXI_URL @"http://localhost:8080/TN/restServices/DriverController/getNearDriver"
 #define FIND_PROMOTION_TRIP_URL @"http://localhost:8080/TN/restServices/PromotionTripController/FindPromotionTip"
+#define CREATETRIP @"http://localhost:8080/TN/restServices/TripController/CreateTrip"
 
 
 @implementation unity
@@ -110,13 +111,25 @@
     NSDictionary *param = @{@"fromLatitude":fromLongitude, @"fromLongitude":fromLongitude, @"toLatitude":toLatitude, @"toLongitude":toLongitude};
     [manager POST:url parameters:param
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              
+
           }];
-    
-    
+}
++(void)CreateTrip:(NSString*)param owner:(DetailTaxi *)owner
+{
+    NSString *url = [NSString stringWithFormat:@"%@",CREATETRIP];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url
+       parameters:param
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"success");
+
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"failse");
+
+          }];
 }
 
 

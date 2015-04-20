@@ -314,8 +314,10 @@
              
              if (locationTabPosition == 0) {
                  mLocationFrom.text = address;
+                 [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"adressFrom"];
                  if ([address length]>30) {
                      mLocationFrom.text=[address substringToIndex:[address length] - 27];
+                     [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"adressFrom"];
                  }
                  placeFrom = [[MKPlacemark alloc] initWithCoordinate:myCoOrdinate addressDictionary:placemark.addressDictionary];
                  [[NSUserDefaults standardUserDefaults] setObject:lotu forKey:@"longitudeFrom"];
@@ -323,8 +325,10 @@
                  
              } else {
                  mLocationTo.text = address;
+                 [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"adressTo"];
                  if ([address length]>30) {
                      mLocationTo.text=[address substringToIndex:[address length] - 27];
+                     [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"adressTo"];
                  }
                  placeTo = [[MKPlacemark alloc] initWithCoordinate:myCoOrdinate addressDictionary:placemark.addressDictionary];
                  [[NSUserDefaults standardUserDefaults] setObject:lotu forKey:@"longitudeTo"];
@@ -376,8 +380,33 @@
     [self.frostedViewController.view endEditing:YES];
     [self.frostedViewController presentMenuViewController];
 }
-- (IBAction)findWay:(id)sender {
-// add anonator map from-to
+
+-(void)checkGetnearTaxi
+{
+    for (id json in self.nearTaxi) {
+        NSLog(@"JSON:%@",json);
+        NSString *latitu=[json objectForKey:@"latitude"];
+        NSString *lontitu=[json objectForKey:@"longitude"];
+        JPSThumbnail *empire = [[JPSThumbnail alloc] init];
+        empire.image = [UIImage imageNamed:@"locatorTaxi.png"];
+        empire.coordinate = CLLocationCoordinate2DMake([latitu floatValue], [lontitu floatValue]);
+        empire.disclosureBlock =  ^{
+            DetailTaxi *detailTaxi = [[DetailTaxi alloc] initWithNibName:@"DetailTaxi" bundle:nil];
+            detailTaxi.vcParent = self;
+            detailTaxi.dataTaxi=json;
+            [self presentPopupViewController:detailTaxi animated:YES completion:^(void) {
+                NSLog(@"popup view presented");
+            }];
+        };
+        [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:empire]];
+
+    }
+    
+
+    
+}
+- (IBAction)BookNow:(id)sender {
+    // add anonator map from-to
     NSInteger toRemoveCount = mapview.annotations.count;
     NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
     for (id annotation in mapview.annotations)
@@ -398,14 +427,14 @@
     annotationTo.coordinate = CLLocationCoordinate2DMake([latitudeTo floatValue], [longitudeTo floatValue]);
     annotationTo.image = [UIImage imageNamed:@"toMap.png"];
     [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:annotationTo]];
-
-// get near taxi
+    
+    // get near taxi
     dispatch_async(dispatch_get_main_queue(), ^{
         [unity getNearTaxi:latitudeFrom andLongtitude:longitudeFrom owner:self];
-//        [self.mapview addAnnotations:[self annotations]];
+        //        [self.mapview addAnnotations:[self annotations]];
     });
     
-// find way
+    // find way
     [self.mapview removeOverlays:self.mapview.overlays];
     
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
@@ -423,11 +452,11 @@
         } else {
             routeDetails = response.routes.lastObject;
             [self.mapview addOverlay:routeDetails.polyline];
-            for (int i = 0; i < routeDetails.steps.count; i++) {
-                MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
-                NSString *newStep = step.instructions;
-//                NSLog(@"Step:%@",newStep);
-            }
+            //            for (int i = 0; i < routeDetails.steps.count; i++) {
+            //                MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
+            //                NSString *newStep = step.instructions;
+            //                NSLog(@"Step:%@",newStep);
+            //            }
         }
     }];
     CLLocation *pinLocation = [[CLLocation alloc]
@@ -440,32 +469,9 @@
     
     CLLocationDistance distance = [pinLocation distanceFromLocation:userLocation];
     NSLog(@"distance: %4.0f m",distance);
+    [[NSUserDefaults standardUserDefaults] setFloat:distance forKey:@"distance"];
     
-}
--(void)checkGetnearTaxi
-{
-    for (id json in self.nearTaxi) {
-        NSLog(@"JSON:%@",json);
-        NSString *latitu=[json objectForKey:@"latitude"];
-        NSString *lontitu=[json objectForKey:@"longitude"];
-        JPSThumbnail *empire = [[JPSThumbnail alloc] init];
-        empire.image = [UIImage imageNamed:@"locatorTaxi.png"];
-        empire.coordinate = CLLocationCoordinate2DMake([latitu floatValue], [lontitu floatValue]);
-        empire.disclosureBlock =  ^{
-            DetailTaxi *detailTaxi = [[DetailTaxi alloc] initWithNibName:@"DetailTaxi" bundle:nil];
-            detailTaxi.vcParent = self;
-            [self presentPopupViewController:detailTaxi animated:YES completion:^(void) {
-                NSLog(@"popup view presented");
-            }];
-        };
-        [self.mapview addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:empire]];
-
-    }
     
-
-    
-}
-- (IBAction)BookNow:(id)sender {
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {

@@ -48,31 +48,29 @@
 
 - (IBAction)Login:(id)sender {
     
-//    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
-//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-//                                                         message:NSLocalizedString(@"please input username",nil)
-//                                                        delegate:self
-//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-//                                               otherButtonTitles:nil, nil];
-//        [alertTmp show];
-//    }
-//    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
-//    {
-//        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
-//                                                         message:NSLocalizedString(@"please input Password",nil)
-//                                                        delegate:self
-//                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
-//                                               otherButtonTitles:nil, nil];
-//        [alertTmp show];
-//    }
-//    else
-//    {
-//        [HUD show:YES];
-//        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
-//    }
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
-    HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
+    if (self.emailLogin==nil|| [self.emailLogin.text isEqualToString:@""]) {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input username",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else if (self.passLogin.text==nil|| [self.passLogin.text isEqualToString:@""])
+    {
+        UIAlertView *alertTmp =[[UIAlertView alloc]initWithTitle:@""
+                                                         message:NSLocalizedString(@"please input Password",nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"OK",nil)
+                                               otherButtonTitles:nil, nil];
+        [alertTmp show];
+    }
+    else
+    {
+        [HUD show:YES];
+        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
+    }
+
 }
 -(void)checkLogin
 {
@@ -97,7 +95,8 @@
     //    [loginInfo setObject:[self.dataUser objectForKey:@"officeAddressLng"] forKey:@"officeAddressLng"];
     //    [loginInfo setObject:[self.dataUser objectForKey:@"officeAddressLat"] forKey:@"officeAddressLat"];
     [loginInfo setObject:[self.dataUser objectForKey:@"riderId"] forKey:@"riderId"];
-    
+    [[NSUserDefaults standardUserDefaults] setObject:[self.dataUser objectForKey:@"riderId"] forKey:@"riderId"];
+
     //    [loginInfo setObject:[self.dataUser objectForKey:@"role"] forKey:@"role"];
     //    [loginInfo setObject:[self.dataUser objectForKey:@"type"] forKey:@"type"];
     

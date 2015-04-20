@@ -11,7 +11,9 @@
 #import "LoginViewController.h"
 #import "UserInfo.h"
 #import "HomeViewController.h"
+#import "DetailTaxi.h"
 @class HomeViewController;
+@class DetailTaxi;
 @interface unity : NSObject
 
 +(void)login_by_email : (NSString*)email pass:(NSString *)pass owner:(LoginViewController*)owner;
@@ -31,5 +33,5 @@
             withToLatitude: (NSString*)toLatitude
             andToLongitude: (NSString*)toLongitude ;
 
-
++(void)CreateTrip:(NSString*)param owner:(DetailTaxi *)owner;
 @end
