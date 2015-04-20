@@ -10,6 +10,10 @@
 #import "AFNetworking.h"
 #import "LoginViewController.h"
 #import "UserInfo.h"
+#import "PromotionInfo.h"
+#import "AppDelegate.h"
+#import "ShowMyPromotionTrip.h"
+#import "FindPromotionTrip.h"
 #import "HomeViewController.h"
 #import "DetailTaxi.h"
 @class HomeViewController;
@@ -28,10 +32,22 @@
 +(void)getNearTaxi:(NSString*)latitude
      andLongtitude:(NSString*)longtitude owner:(HomeViewController *)owner;
 
-+(void)findPromotionTrips : (NSString*)formLatitude
-          andfromLongitude: (NSString*)fromLongitude
-            withToLatitude: (NSString*)toLatitude
-            andToLongitude: (NSString*)toLongitude ;
++(void)findPromotionTrips : (double)formLatitude
+          andfromLongitude: (double)fromLongitude
+            withToLatitude: (double)toLatitude
+            andToLongitude: (double)toLongitude
+                     owner: (FindPromotionTrip*)owner;
++(void)registerPromotionTrip:(NSString*)promotionTripId
+                     riderId:(NSString*)riderId
+                    fromCity:(NSString*)fromCity
+                 fromAddress:(NSString*)fromAddress
+                      toCity:(NSString*)tocity
+                   toAddress:(NSString*)toAddress
+               numberOfSeats:(NSString*)number;
+
+
+
+
 
 +(void)CreateTrip:(NSString*)param owner:(DetailTaxi *)owner;
 @end

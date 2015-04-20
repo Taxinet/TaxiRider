@@ -11,6 +11,7 @@
 @implementation CustomMyPromotionTrip
 
 @synthesize dateTimeLb;
+@synthesize viewDriver,viewFrom,viewNumber,viewPrice,viewTo,labelView;
 - (void)awakeFromNib {
     // Initialization code
 }

@@ -8,13 +8,19 @@
 
 #import "ShowMyPromotionTrip.h"
 #import "CustomMyPromotionTrip.h"
+#import "AppDelegate.h"
+#import "HomeViewController.h"
+#import "FindPromotionTrip.h"
 
 @interface ShowMyPromotionTrip ()
 {
+    AppDelegate *appDelegate;
     NSArray *objData;
     NSArray *dataArr;
     NSArray *keyArr;
     NSDictionary *data;
+    UIStoryboard *homeStoryboard;
+    //UIStoryboard *findPromotionStoryboard;
     
 }
 
@@ -25,12 +31,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //set storyboard
+    homeStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle:nil];
+    // set data to nsmutabledictionary
+    appDelegate = (AppDelegate * )[[UIApplication sharedApplication] delegate];
+//    appDelegate.promotionData =(NSMutableDictionary*) self.promotionData;
+//    NSLog(@"FROM ADD:%@",[appDelegate.promotionData objectForKey:@"fromAddress"]);
     
     dataArr = [NSArray arrayWithObjects:@"10:10 Date: 10/10/2015 ", @"Regitered",@"Cau giay",@"My dinh",@"2",@"10000",@"Dino", nil];
     keyArr  = [NSArray arrayWithObjects:@"datetime",@"status",@"from",@"to",@"numberofseat",@"price",@"driver", nil];
     data = [NSDictionary dictionaryWithObjects:dataArr forKeys:keyArr];
     objData = [[NSArray alloc]initWithObjects:data, nil];
+    
+    
+    // set color
+    [self.bannerView setBackgroundColor:[UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1]];
+    [self.nextToFindPro setBackgroundColor:[UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1]];
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [objData count];
@@ -62,7 +80,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return 157;
 }
 
 
@@ -82,8 +100,12 @@
 */
 
 - (IBAction)backBtn:(id)sender {
+    HomeViewController *viewcontroller = [homeStoryboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    [self.navigationController pushViewController:viewcontroller animated:YES];
 }
 
 - (IBAction)findPromotion:(id)sender {
+    FindPromotionTrip *viewcontroller = [homeStoryboard instantiateViewControllerWithIdentifier:@"FindPromotionTrip"];
+    [self.navigationController pushViewController:viewcontroller animated:YES];
 }
 @end

@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "MBProgressHUD.h"
 #import "unity.h"
+#import "UserInfo.h"
 @interface LoginViewController ()
 
 @end
@@ -27,6 +28,7 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.view addSubview:HUD];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"offLoginloading" object:nil];
+    
     appdelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
 
 }
@@ -74,10 +76,13 @@
 }
 -(void)checkLogin
 {
-    NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
-    appdelegate.yoursefl=(NSMutableDictionary*)self.dataUser;
 
+    NSUserDefaults *loginInfo = [NSUserDefaults standardUserDefaults];
+    // set data to NSDictionary
+    appdelegate.yoursefl=(NSMutableDictionary*)self.dataUser;
+    NSLog(@"data9999:%@",[appdelegate.yoursefl objectForKey:@"email"]);
     // save data login
+    //NSString *passLog = @"******";
     [loginInfo setObject:self.emailLogin.text forKey:@"username"];
     [loginInfo setObject:self.passLogin.text forKey:@"password"];
     [loginInfo setObject:[self.dataUser objectForKey:@"email"] forKey:@"email"];
@@ -101,9 +106,7 @@
     //    [loginInfo setObject:[self.dataUser objectForKey:@"type"] forKey:@"type"];
     
     
-    NSLog(@"Test login data: %@",[self.dataUser objectForKey:@"email"]);
     NSLog(@"Test login data: %@",self.dataUser);
-    NSLog(@"data: %@",self.dataUser);
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"HomeView" bundle: nil];
     HomeViewController *controller = (HomeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
     [self.navigationController pushViewController:controller animated:YES];

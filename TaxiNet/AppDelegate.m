@@ -13,7 +13,8 @@
 @end
 
 @implementation AppDelegate
-@synthesize yoursefl;
+@synthesize yoursefl, promotionDataArray;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -29,7 +30,7 @@
     }
     
     NSLog(@"%@",launchOptions);
-
+   // promotionDataArray= [[NSMutableArray alloc]init];
     return YES;
 }
 
