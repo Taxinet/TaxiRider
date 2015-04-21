@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770C609B1AE4FD8600D80A71 /* CreateTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 770C609A1AE4FD8600D80A71 /* CreateTrip.m */; };
 		772BBE051ABF0EDA0098AB20 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBDE11ABF0EDA0098AB20 /* AFHTTPRequestOperation.m */; };
 		772BBE061ABF0EDA0098AB20 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBDE31ABF0EDA0098AB20 /* AFHTTPRequestOperationManager.m */; };
 		772BBE071ABF0EDA0098AB20 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BBDE51ABF0EDA0098AB20 /* AFHTTPSessionManager.m */; };
@@ -126,6 +127,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		770C60991AE4FD8600D80A71 /* CreateTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTrip.h; sourceTree = "<group>"; };
+		770C609A1AE4FD8600D80A71 /* CreateTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTrip.m; sourceTree = "<group>"; };
 		772BBDE01ABF0EDA0098AB20 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		772BBDE11ABF0EDA0098AB20 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		772BBDE21ABF0EDA0098AB20 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 				7733C36D1AC6938F007A15ED /* UserInfo.m */,
 				8F9D13BA1ADD70F900EE8AB4 /* PromotionInfo.h */,
 				8F9D13BB1ADD70F900EE8AB4 /* PromotionInfo.m */,
+				770C60991AE4FD8600D80A71 /* CreateTrip.h */,
+				770C609A1AE4FD8600D80A71 /* CreateTrip.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -748,7 +753,6 @@
 				8F1CA0281ADEB86400FD7405 /* iconlocation.png in Resources */,
 				774318DC1AA74DAE001CF128 /* text_email.png in Resources */,
 				8F1CA0301ADEC95500FD7405 /* location.PNG in Resources */,
-
 				775B5F711ADEE00E00765F4F /* mapto.png in Resources */,
 				774318ED1AA96029001CF128 /* checkBox.png in Resources */,
 				774318AD1AA73DBA001CF128 /* Main.storyboard in Resources */,
@@ -826,6 +830,7 @@
 				774318FF1AAC415A001CF128 /* JPSThumbnailAnnotation.m in Sources */,
 				774318E81AA7564D001CF128 /* RegisterViewController.m in Sources */,
 				772BBE0E1ABF0EDA0098AB20 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				770C609B1AE4FD8600D80A71 /* CreateTrip.m in Sources */,
 				772BBE051ABF0EDA0098AB20 /* AFHTTPRequestOperation.m in Sources */,
 				776090CA1AADD59C00C21D94 /* UIView+REFrostedViewController.m in Sources */,
 				772BBE081ABF0EDA0098AB20 /* AFNetworkReachabilityManager.m in Sources */,
@@ -997,7 +1002,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "df55ed76-42d6-4aef-b107-ca6eea3c7859";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1016,7 +1021,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = taxinet;
-				PROVISIONING_PROFILE = "df55ed76-42d6-4aef-b107-ca6eea3c7859";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

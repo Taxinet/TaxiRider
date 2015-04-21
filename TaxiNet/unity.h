@@ -20,7 +20,8 @@
 @class DetailTaxi;
 @interface unity : NSObject
 
-+(void)login_by_email : (NSString*)email pass:(NSString *)pass owner:(LoginViewController*)owner;
++(void)login_by_email : (NSString*)email pass:(NSString *)pass regId:(NSString*)regId deviceType:(NSString*)deviceType owner:(LoginViewController*)owner;
+
 +(void)register_by_email : (NSString*)email password:(NSString *)pass firstname:(NSString *)firstname lastname:(NSString *)lastname phone:(NSString *)phone language:(NSString *)language usergroup:(NSString *)usergroup countrycode:(NSString *)countrycode;
 
 +(void)updateByRiderById : (NSString*)riderId

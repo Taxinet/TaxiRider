@@ -19,6 +19,7 @@ bool checked=NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.scroolview setContentSize:CGSizeMake(320,700)];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+CWPopup.h"
 #import "unity.h"
+#import "CreateTrip.h"
 @interface DetailTaxi : UIViewController
 - (IBAction)Book:(id)sender;
 

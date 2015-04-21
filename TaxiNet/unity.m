@@ -8,25 +8,29 @@
 
 #import "unity.h"
 
-#define URL_SIGNIN @"http://localhost:8080/TN/restServices/riderController/Login"
-#define UPDATE_URL @"http://localhost:8080/TN/restServices/riderController/UpdateRider"
-#define NEAR_TAXI_URL @"http://localhost:8080/TN/restServices/DriverController/getNearDriver"
+#define URL_SIGNIN @"http://192.168.125.10:8080/TN/restServices/riderController/Login"
+#define UPDATE_URL @"http://192.168.125.10:8080/TN/restServices/riderController/UpdateRider"
+#define NEAR_TAXI_URL @"http://192.168.125.10:8080/TN/restServices/DriverController/getNearDriver"
 #define FIND_PROMOTION_TRIP_URL @"http://localhost:8080/TN/restServices/PromotionTripController/FindPromotionTip"
-#define CREATETRIP @"http://localhost:8080/TN/restServices/TripController/CreateTrip"
-#define REGISTER_PROMOTION_TRIP_URL @"http://localhost:8080/TN/restServices/PromotionTripController/RegisterPromotionTip"
+#define CREATETRIP @"http://192.168.125.10:8080/TN/restServices/TripController/CreateTripiOS"
+#define REGISTER_PROMOTION_TRIP_URL @"http://192.168.125.10:8080/TN/restServices/PromotionTripController/RegisterPromotionTip"
 
 @implementation unity
 {
 
 }
 
-+(void)login_by_email:(NSString *)email pass:(NSString *)pass owner:(LoginViewController*)owner
++(void)login_by_email:(NSString *)email
+                 pass:(NSString *)pass
+                regId:(NSString *)regId
+           deviceType:(NSString *)deviceType
+                owner:(LoginViewController*)owner
 {
     UserInfo *model = [[UserInfo alloc] init];
     
     NSString *url=[NSString stringWithFormat:@"%@",URL_SIGNIN];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *params2 = @ {@"username":email, @"password":pass};
+    NSDictionary *params2 = @ {@"username":email, @"password":pass ,@"regId":regId, @"deviceType":deviceType};
     
     [manager POST:url parameters:params2
           success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -54,7 +58,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
-    NSString *api=[NSString stringWithFormat:@"http://localhost:8080/TN/restServices/CommonController/register?email=%@&password=%@&firstname=%@&lastname=%@&phone=%@&language=%@&usergroup=%@&countrycode=%@",email,pass,firstname,lastname,phone,language,usergroup,countrycode];
+    NSString *api=[NSString stringWithFormat:@"http://192.168.125.10:8080/TN/restServices/CommonController/register?email=%@&password=%@&firstname=%@&lastname=%@&phone=%@&language=%@&usergroup=%@&countrycode=%@",email,pass,firstname,lastname,phone,language,usergroup,countrycode];
     NSLog(@"api:%@",api);
 
     [manager GET:api parameters:nil
@@ -148,6 +152,18 @@
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"failse");
           }];
+    
+//    NSString *api=[NSString stringWithFormat:@"%@?json=%@",CREATETRIP,param];
+//    NSLog(@"api:%@",api);
+//    
+//    [manager GET:api parameters:nil
+//         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//             NSLog(@"JSON: %@", responseObject);
+//             
+//         }
+//         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//             
+//         }];
 }
 
 +(void)registerPromotionTrip:(NSString *)promotionTripId

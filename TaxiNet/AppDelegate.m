@@ -42,6 +42,8 @@
                               stringByReplacingOccurrencesOfString: @" " withString: @""];
     
     NSLog(@"%@",deviceToke1n);
+    [[NSUserDefaults standardUserDefaults] setObject:deviceToke1n forKey:@"deviceToken"];
+
 //    NSLog(@"My token is: %@", deviceToken);
     
 }

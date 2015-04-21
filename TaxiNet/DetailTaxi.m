@@ -49,19 +49,35 @@
 
 - (IBAction)Book:(id)sender {
     NSString *RiderID = [[NSUserDefaults standardUserDefaults] stringForKey:@"riderId"];
-    NSString *driverID=[self.dataTaxi objectForKey:@"id"];
-    NSString *longitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeFrom"];
-    NSString *latitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeFrom"];
-    NSString *longitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeTo"];
-    NSString *latitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeTo"];
-    NSString *adressFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"adressFrom"];
-    NSString *adressTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"adressTo"];
-    NSDictionary *param = @{@"riderId":RiderID, @"driverId":driverID, @"fromlongitude":longitudeFrom, @"fromlatitude":latitudeFrom, @"tolongitude":longitudeTo, @"tolatitude":latitudeTo, @"paymentMethod":@"cash", @"fromAddress":adressFrom, @"toAddress":adressTo, @"fromCity":@"Ha Noi", @"toCity":@"Ha Noi"};
+    NSString *DriverID=[self.dataTaxi objectForKey:@"id"];
+    NSString *LongitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeFrom"];
+    NSString *LatitudeFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeFrom"];
+    NSString *LongitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"longitudeTo"];
+    NSString *LatitudeTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"latitudeTo"];
+    NSString *AdressFrom = [[NSUserDefaults standardUserDefaults] stringForKey:@"adressFrom"];
+    NSString *AdressTo = [[NSUserDefaults standardUserDefaults] stringForKey:@"adressTo"];
     
-    NSData *plainData = [[NSString stringWithFormat:@"%@", param]
-    dataUsingEncoding:NSUTF8StringEncoding];
+    CreateTrip *createtrip=[[CreateTrip alloc]init];
+    createtrip.riderID=RiderID;
+    createtrip.driverID=DriverID;
+    createtrip.longitudeFrom=[LongitudeFrom doubleValue];
+    createtrip.latitudeFrom=[LatitudeFrom doubleValue];
+    createtrip.longitudeTo=[LongitudeTo doubleValue];
+    createtrip.latitudeTo=[LatitudeTo doubleValue];
+    createtrip.adressFrom=AdressFrom;
+    createtrip.adressTo=AdressTo;
+    createtrip.paymentMethod=@"cash";
+    createtrip.fromCity=@"Ha Noi";
+    createtrip.toCity=@"Ha Noi";
+    
+    NSString *data = [NSString stringWithFormat:@"{\"riderId\":\"%@\",\"driverId\":\"%@\",\"fromlongitude\":\"%@\",\"fromlatitude\":\"%@\",\"tolongitude\":\"%@\",\"tolatitude\":\"%@\",\"paymentMethod\":\"cash\",\"fromAddress\":\"%@\",\"toAddress\":\"%@\",\"fromCity\":\"Ha Noi\",\"toCity\":\"Ha Noi\"}",RiderID,DriverID,LongitudeFrom,LatitudeFrom,LongitudeTo,LatitudeTo,AdressFrom,AdressTo];
+    
+   NSLog(@"%@", data);
+
+    NSData *plainData = [data dataUsingEncoding:NSUTF8StringEncoding];
     NSString *base64String = [plainData base64EncodedStringWithOptions:0];
-    NSLog(@"%@", base64String); // Zm9v
+    // Zm9v
+
     
     [unity CreateTrip:base64String owner:self];
 }

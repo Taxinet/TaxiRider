@@ -21,9 +21,9 @@
     AppDelegate*appdelegate;
 
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.view addSubview:HUD];
@@ -69,8 +69,10 @@
     }
     else
     {
+        NSString *deviceType = @"iOS";
         [HUD show:YES];
-        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text owner:self];
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+        [unity login_by_email:self.emailLogin.text pass:self.passLogin.text regId:deviceToken deviceType:deviceType  owner:self];
     }
 
 }
